@@ -25,6 +25,7 @@ class StartActivity : BaseActivity() {
     }
 
     fun onClickStartButton(view: View) {
+        //fixme : Flag 변경, 조건에 따른 Intent 변경
         val nextIntent = Intent(
             this@StartActivity,
             SignInActivity::class.java

@@ -18,4 +18,12 @@ class SignInActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
     }
+
+    companion object{
+        val signInGuideList = listOf(
+            R.layout.item_signin1,
+            R.layout.item_signin2,
+            R.layout.item_signin3
+        )
+    }
 }
