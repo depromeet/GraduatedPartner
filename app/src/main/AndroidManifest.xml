@@ -16,15 +16,7 @@
                 <category android:name="android.intent.category.LAUNCHER"/>
             </intent-filter>
         </activity>
-        <activity android:name=".presentation.score.ScoreActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-            </intent-filter>
-        </activity>
-        <activity android:name=".presentation.signin.SignInActivity">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW"/>
-            </intent-filter>
-        </activity>
+        <activity android:name=".presentation.score.ScoreActivity" />
+        <activity android:name=".presentation.signin.SignInActivity" />
     </application>
 </manifest>
