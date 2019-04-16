@@ -1,20 +1,21 @@
 package com.dmp.graduatedpartner.presentation.signin
 
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.viewpager.widget.PagerAdapter
 import com.dmp.graduatedpartner.R
 
-class SignInViewPagerAdapter : PagerAdapter() {
-    override fun isViewFromObject(view: View, viewItem: Any) = (view == viewItem)
+class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
+    override fun isViewFromObject(view: View, viewItem: Any): Boolean = (view == viewItem)
 
     override fun getCount() = signInGuideList.size
 
-    override fun getItemPosition(viewItem: Any) = POSITION_NONE
+    override fun getItemPosition(viewItem: Any): Int = POSITION_NONE
 
-    override fun instantiateItem(container: ViewGroup, position: Int) =
-        LayoutInflater.from(container.context).inflate(signInGuideList[position], container,false).apply {
+    override fun instantiateItem(container: ViewGroup, position: Int): View =
+        LayoutInflater.from(context).inflate(signInGuideList[position], container, false).apply {
             container.addView(this)
         }
 

@@ -17,6 +17,8 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.score.ScoreActivity" />
-        <activity android:name=".presentation.signin.SignInActivity" />
+        <activity
+            android:name=".presentation.signin.SignInActivity"
+            android:windowSoftInputMode="adjustResize"/>
     </application>
 </manifest>
