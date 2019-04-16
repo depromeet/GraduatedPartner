@@ -8,17 +8,121 @@
             name="vm"
             type="com.dmp.graduatedpartner.presentation.score.ScoreViewModel"/>
     </data>
-    <androidx.constraintlayout.widget.ConstraintLayout
+
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="score!"
-            app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="parent"/>
 
-    </androidx.constraintlayout.widget.ConstraintLayout>
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/btn_score_new_semester"
+                android:layout_width="110dp"
+                android:layout_height="25dp"
+                android:gravity="center"
+                android:text="새학기 시작하기"
+                android:textColor="@android:color/white"
+                android:background="@drawable/bluecircle"
+                android:textStyle="bold"
+                android:textSize="12sp"
+                android:layout_marginTop="25dp"
+                android:layout_marginStart="20dp"
+                android:fontFamily="@font/nanumsquareround"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"/>
+
+            <TextView
+                android:id="@+id/text_score_title"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="현재 성적을\n입력해주세요!"
+                android:textSize="25sp"
+                android:textColor="#171717"
+                android:layout_marginTop="5dp"
+                android:fontFamily="@font/nanumsquareround"
+                app:layout_constraintTop_toBottomOf="@id/btn_score_new_semester"
+                app:layout_constraintLeft_toLeftOf="@id/btn_score_new_semester"/>
+
+            <TextView
+                android:id="@+id/btn_score_input_grade"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="성적입력하기 ▶︎"
+                android:textSize="12sp"
+                android:textColor="#a5a5a5"
+                android:fontFamily="@font/nanumsquareround"
+                app:layout_constraintBottom_toBottomOf="@id/text_score_title"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <View
+                android:id="@+id/view_score_complete"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_marginTop="40dp"
+                android:background="#14b7ff"
+                app:layout_constraintTop_toBottomOf="@id/btn_score_input_grade"/>
+
+            <TextView
+                android:id="@+id/text_score_subtitle1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="이박님! 80학점 남으셨어요"
+                android:textSize="20sp"
+                android:textColor="#171717"
+                android:layout_marginStart="20dp"
+                app:layout_constraintTop_toBottomOf="@id/view_score_complete"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/btn_score_edit1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="수정하기 ▶︎"
+                android:textSize="12sp"
+                android:textColor="#a5a5a5"
+                android:fontFamily="@font/nanumsquareround"
+                app:layout_constraintBottom_toBottomOf="@id/text_score_subtitle1"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <LinearLayout
+                android:id="@+id/linear_score_detail"
+                android:layout_width="match_parent"
+                android:layout_marginTop="20dp"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintTop_toBottomOf="@id/text_score_subtitle1"/>
+
+            <TextView
+                android:id="@+id/text_score_subtitle2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="50dp"
+                android:text="현재 성적을 등록해주세요...  ಠ‸ಠ "
+                android:textSize="20sp"
+                android:textColor="#171717"
+                android:layout_marginStart="20dp"
+                app:layout_constraintTop_toBottomOf="@id/linear_score_detail"
+                app:layout_constraintLeft_toLeftOf="parent"/>
+
+            <TextView
+                android:id="@+id/btn_score_edit2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginEnd="10dp"
+                android:text="수정하기 ▶︎"
+                android:textSize="12sp"
+                android:textColor="#a5a5a5"
+                android:fontFamily="@font/nanumsquareround"
+                app:layout_constraintBottom_toBottomOf="@id/text_score_subtitle2"
+                app:layout_constraintRight_toRightOf="parent"/>
+
+            <!--fixme : 그래프 자리-->
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+    </androidx.core.widget.NestedScrollView>
 </layout>

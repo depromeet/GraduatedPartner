@@ -9,6 +9,7 @@ import androidx.databinding.DataBindingUtil
 import com.dmp.graduatedpartner.R
 import com.dmp.graduatedpartner.presentation.base.BaseActivity
 import com.dmp.graduatedpartner.databinding.ActivityStartBinding
+import com.dmp.graduatedpartner.presentation.score.ScoreActivity
 import com.dmp.graduatedpartner.presentation.signin.SignInActivity
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -28,7 +29,8 @@ class StartActivity : BaseActivity() {
         //fixme : Flag 변경, 조건에 따른 Intent 변경
         val nextIntent = Intent(
             this@StartActivity,
-            SignInActivity::class.java
+//            SignInActivity::class.java
+            ScoreActivity::class.java
         ).addFlags(FLAG_ACTIVITY_CLEAR_TASK or FLAG_ACTIVITY_NEW_TASK)
         startActivity(nextIntent)
     }
