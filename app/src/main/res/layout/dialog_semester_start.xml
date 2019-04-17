@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@drawable/common_dialog_bg">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/semester_start_title"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:gravity="center"
+            android:text="@string/str_semester_start_title"
+            android:textColor="#ffffff"
+            android:textSize="22sp"
+            app:layout_constraintBottom_toTopOf="@id/semester_start_container"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_chainStyle="packed" />
+
+        <View
+            android:id="@+id/semester_start_container"
+            android:layout_width="0dp"
+            android:layout_height="355dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:background="@drawable/semester_start_container_shape"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/semester_start_title" />
+
+        <View
+            android:id="@+id/semester_start_flower_first"
+            android:layout_width="2dp"
+            android:layout_height="13dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginTop="41dp"
+            android:background="#14b7ff"
+            app:layout_constraintLeft_toLeftOf="@id/semester_start_container"
+            app:layout_constraintTop_toTopOf="@id/semester_start_container" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nanumsquareround"
+            android:text="@string/str_semester_start_flower_first"
+            android:textColor="#171717"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/semester_start_flower_first"
+            app:layout_constraintLeft_toRightOf="@id/semester_start_flower_first"
+            app:layout_constraintTop_toTopOf="@id/semester_start_flower_first" />
+
+        <Spinner
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="13dp"
+            app:layout_constraintLeft_toLeftOf="@id/semester_start_flower_first"
+            app:layout_constraintTop_toBottomOf="@id/semester_start_flower_first"
+            android:background="@drawable/common_shape"
+            app:layout_constraintRight_toRightOf="@id/semester_start_container"/>
+
+        <View
+            android:id="@+id/semester_start_flower_second"
+            android:layout_width="2dp"
+            android:layout_height="13dp"
+            android:layout_marginTop="87dp"
+            android:background="#14b7ff"
+            app:layout_constraintLeft_toLeftOf="@id/semester_start_flower_first"
+            app:layout_constraintTop_toBottomOf="@id/semester_start_flower_first" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nanumsquareround"
+            android:text="@string/str_semester_start_flower_second"
+            android:textColor="#171717"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/semester_start_flower_second"
+            app:layout_constraintLeft_toRightOf="@id/semester_start_flower_second"
+            app:layout_constraintTop_toTopOf="@id/semester_start_flower_second" />
+
+        <View
+            android:id="@+id/semester_start_flower_third"
+            android:layout_width="2dp"
+            android:layout_height="13dp"
+            android:layout_marginTop="87dp"
+            android:background="#14b7ff"
+            app:layout_constraintLeft_toLeftOf="@id/semester_start_flower_first"
+            app:layout_constraintTop_toTopOf="@id/semester_start_flower_second" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="8dp"
+            android:fontFamily="@font/nanumsquareround"
+            android:text="@string/str_semester_start_flower_third"
+            android:textColor="#171717"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/semester_start_flower_third"
+            app:layout_constraintLeft_toRightOf="@id/semester_start_flower_third"
+            app:layout_constraintTop_toTopOf="@id/semester_start_flower_third" />
+
+        <androidx.legacy.widget.Space
+            android:id="@+id/semester_start_container_bottom"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintBottom_toBottomOf="@id/semester_start_container"/>
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/semester_start_btn"
+            android:textSize="12sp"
+            android:textColor="#ffffff"
+            app:layout_constraintLeft_toLeftOf="@id/semester_start_container"
+            app:layout_constraintRight_toRightOf="@id/semester_start_container"
+            app:layout_constraintTop_toTopOf="@id/semester_start_container_bottom"
+            app:layout_constraintBottom_toBottomOf="@id/semester_start_container_bottom"
+            android:gravity="center"
+            android:text="@string/str_start"/>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

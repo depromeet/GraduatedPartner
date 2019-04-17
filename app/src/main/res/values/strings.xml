@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">GraduatedPartner</string>
+    <string name="str_semester_start_title">이번 학기도\n화이팅! (ง°̀ﾛ°́)ง</string>
+    <string name="str_semester_start_flower_first">현재 학년 / 학기</string>
+    <string name="str_semester_start_flower_second">개강일</string>
+    <string name="str_semester_start_flower_third">종강일</string>
+    <string name="str_start">시작</string>
 </resources>
