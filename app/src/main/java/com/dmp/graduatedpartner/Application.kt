@@ -1,6 +1,7 @@
 package com.dmp.graduatedpartner
 
 import android.app.Application
+import android.content.Context
 import com.dmp.graduatedpartner.datasource.dataSourceModule
 import com.dmp.graduatedpartner.presentation.viewModelModule
 import com.dmp.graduatedpartner.repository.repositoryModule
@@ -17,5 +18,10 @@ class Application : Application() {
             androidContext(this@Application)
             modules(listOf(viewModelModule, useCaseModule, repositoryModule, dataSourceModule))
         }
+        appContext = this
+    }
+
+    companion object{
+        var appContext : Context? = null
     }
 }

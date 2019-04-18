@@ -1,3 +1,3 @@
 package com.dmp.graduatedpartner.model
 
-data class User(val name : String?)
+data class Grade(val name : String)

@@ -21,11 +21,10 @@ class SignInActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
-        initViewPager()
+        bindView()
     }
 
-
-    private fun initViewPager() {
+    private fun bindView() {
         viewpager_signin.adapter = SignInViewPagerAdapter(this@SignInActivity)
         viewpager_signin.offscreenPageLimit = viewpager_signin.adapter?.count ?: 0
     }

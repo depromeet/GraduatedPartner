@@ -23,14 +23,17 @@ class StartActivity : BaseActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
+
     }
 
     fun onClickStartButton(view: View) {
-        //fixme : Flag 변경, 조건에 따른 Intent 변경
         val nextIntent = Intent(
             this@StartActivity,
-//            SignInActivity::class.java
-            ScoreActivity::class.java
+            if (viewModel.existedUser) {
+                ScoreActivity::class.java
+            } else {
+                SignInActivity::class.java
+            }
         ).addFlags(FLAG_ACTIVITY_CLEAR_TASK or FLAG_ACTIVITY_NEW_TASK)
         startActivity(nextIntent)
     }
