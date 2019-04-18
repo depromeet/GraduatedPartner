@@ -1,6 +1,6 @@
 package com.dmp.graduatedpartner.datasource.local
 
-import android.content.Context
+import android.content.Context.MODE_PRIVATE
 import com.dmp.graduatedpartner.Application
 import com.dmp.graduatedpartner.model.Key
 import com.google.gson.Gson
@@ -8,7 +8,7 @@ import io.reactivex.Maybe
 import io.reactivex.Single
 
 class KeyDataSource {
-    private val sharedPreference = Application.appContext?.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
+    private val sharedPreference = Application.appContext?.getSharedPreferences(FILE_NAME, MODE_PRIVATE)
     private val editor by lazy { sharedPreference?.edit() }
     private val gson = Gson()
 
@@ -18,9 +18,10 @@ class KeyDataSource {
             editor?.apply()
         }
 
-    fun get(key: String): Single<Key> = Maybe.create<Key> {
-        sharedPreference?.getString(key, null)?.let { gson.fromJson(it, Key::class.java) }
-    }.switchIfEmpty(Single.create<Key> { Key(null) })
+    fun get(key: String): Single<Key> =
+        Maybe.create<Key> {
+            sharedPreference?.getString(key, null)?.let { gson.fromJson(it, Key::class.java) }
+        }.switchIfEmpty(Single.create<Key> { Key(null) })
 
     companion object {
         const val FILE_NAME = "gp_key"

@@ -21,7 +21,7 @@ class Application : Application() {
         appContext = this
     }
 
-    companion object{
-        var appContext : Context? = null
+    companion object {
+        var appContext: Context? = null
     }
 }

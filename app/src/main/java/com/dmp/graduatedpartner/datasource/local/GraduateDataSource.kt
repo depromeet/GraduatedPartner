@@ -2,28 +2,28 @@ package com.dmp.graduatedpartner.datasource.local
 
 import android.content.Context.MODE_PRIVATE
 import com.dmp.graduatedpartner.Application.Companion.appContext
-import com.dmp.graduatedpartner.model.Grade
+import com.dmp.graduatedpartner.model.Graduate
 import com.google.gson.Gson
 import io.reactivex.Maybe
 import io.reactivex.Single
 
-class GradeDataSource {
+class GraduateDataSource {
     private val sharedPreference = appContext?.getSharedPreferences(FILE_NAME, MODE_PRIVATE)
     private val editor by lazy { sharedPreference?.edit() }
     private val gson = Gson()
 
-    fun put(key: String, content: Grade) =
+    fun put(key: String, content: Graduate) =
         gson.toJson(content)?.let {
             editor?.putString(key, it)
             editor?.apply()
         }
 
-    fun get(key: String): Single<Grade> =
-        Maybe.create<Grade> {
-            sharedPreference?.getString(key, null)?.let { gson.fromJson(it, Grade::class.java) }
-        }.switchIfEmpty(Single.create<Grade> { Grade(null) })
+    fun get(key: String): Single<Graduate> =
+        Maybe.create<Graduate> {
+            sharedPreference?.getString(key, null)?.let { gson.fromJson(it, Graduate::class.java) }
+        }.switchIfEmpty(Single.create<Graduate> { Graduate(null) })
 
     companion object {
-        const val FILE_NAME = "gp_grade"
+        const val FILE_NAME = "gp_graduate"
     }
 }
