@@ -24,7 +24,7 @@
                 android:gravity="center"
                 android:text="새학기 시작하기"
                 android:textColor="@android:color/white"
-                android:background="@drawable/bluecircle"
+                android:background="@drawable/blue_rectangle_edgeround"
                 android:textStyle="bold"
                 android:textSize="12sp"
                 android:layout_marginTop="25dp"
