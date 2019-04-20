@@ -4,6 +4,8 @@ import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.AdapterView
+import android.widget.AdapterView.OnItemSelectedListener
 import androidx.viewpager.widget.PagerAdapter
 import com.dmp.graduatedpartner.R
 import kotlinx.android.synthetic.main.item_signin1.view.*
@@ -26,6 +28,16 @@ class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
             when (position) {
                 0 -> {
                     spinner_sigin1_school.adapter = CollegeTypeAdapter(context)
+                    spinner_sigin1_school.onItemSelectedListener = object : OnItemSelectedListener{
+                        override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
+                            spinner_sigin1_current_grade.adapter = CurrentGradeAdapter(context, parent?.selectedItem as Int)
+                            spinner_sigin1_total_grade.adapter = TotalGradeAdapter(context, parent?.selectedItem as Int)
+                        }
+
+                        override fun onNothingSelected(parent: AdapterView<*>?) {
+
+                        }
+                    }
                 }
             }
         }

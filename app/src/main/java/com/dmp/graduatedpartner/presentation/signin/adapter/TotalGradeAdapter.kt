@@ -10,12 +10,12 @@ import android.widget.TextView
 import androidx.appcompat.widget.ThemedSpinnerAdapter
 import com.dmp.graduatedpartner.R
 
-class CollegeTypeAdapter(private val context: Context) : BaseAdapter(), ThemedSpinnerAdapter {
+class TotalGradeAdapter(private val context: Context, private val collegeType : Int) : BaseAdapter(), ThemedSpinnerAdapter {
     private val helper = ThemedSpinnerAdapter.Helper(context)
 
-    override fun getCount() = 5
+    override fun getCount() = 1
 
-    override fun getItem(position: Int) = position + 2
+    override fun getItem(position: Int) = collegeType
 
     override fun getItemId(position: Int) = position.toLong()
 
@@ -25,7 +25,7 @@ class CollegeTypeAdapter(private val context: Context) : BaseAdapter(), ThemedSp
             parent,
             false
         )) as TextView
-        view.text = "${position + 2}년제"
+        view.text = "${collegeType * 2}학기"
         return view
     }
 

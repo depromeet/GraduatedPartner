@@ -16,7 +16,6 @@ import org.koin.core.parameter.parametersOf
 
 class SignInActivity : BaseActivity() {
     private val viewModel: SignInViewModel by viewModel()
-    private val viewPagerAdapter = SignInViewPagerAdapter(this@SignInActivity)
 
     private val binding by lazy {
         DataBindingUtil.setContentView<ActivitySigninBinding>(this, R.layout.activity_signin)
@@ -29,7 +28,7 @@ class SignInActivity : BaseActivity() {
     }
 
     private fun bindView() {
-        viewpager_signin.adapter = viewPagerAdapter
+        viewpager_signin.adapter = SignInViewPagerAdapter(this@SignInActivity)
         viewpager_signin.offscreenPageLimit = viewpager_signin.adapter?.count ?: 0
         //viewPagerAdapter.getView(0)?.findViewById<TextView>(R.id.text_signin1_title)?.setText("아아")
     }
