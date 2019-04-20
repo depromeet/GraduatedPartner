@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/nanumsquareround"
+            android:text="@string/str_graduated_delete_title"
+            android:textColor="#171717"
+            android:textSize="14sp"
+            app:layout_constraintBottom_toBottomOf="@id/graduated_delete_back"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toTopOf="@id/graduated_delete_back" />
+
+        <androidx.appcompat.widget.AppCompatImageView
+            android:id="@+id/graduated_delete_back"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_marginStart="13dp"
+            android:layout_marginTop="23dp"
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <fragment
+            android:id="@+id/graduated_delete_fragment"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:layout_marginTop="33dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/graduated_delete_back" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>

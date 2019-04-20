@@ -28,7 +28,7 @@
             android:layout_height="355dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
-            android:background="@drawable/semester_start_container_shape"
+            android:background="@drawable/common_dialog_container_shape"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
@@ -63,7 +63,6 @@
             android:layout_marginTop="13dp"
             app:layout_constraintLeft_toLeftOf="@id/semester_start_flower_first"
             app:layout_constraintTop_toBottomOf="@id/semester_start_flower_first"
-            android:background="@drawable/common_shape"
             app:layout_constraintRight_toRightOf="@id/semester_start_container"/>
 
         <View
@@ -118,7 +117,7 @@
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:background="@drawable/semester_start_btn"
+            android:background="@drawable/common_dialog_btn"
             android:textSize="12sp"
             android:textColor="#ffffff"
             app:layout_constraintLeft_toLeftOf="@id/semester_start_container"
