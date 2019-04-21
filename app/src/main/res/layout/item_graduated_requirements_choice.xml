@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="56dp">
+
+        <View
+            android:id="@+id/item_gr_choice_bg"
+            android:layout_width="26dp"
+            android:layout_height="match_parent"
+            android:background="#fcde30" />
+
+        <RadioButton
+            android:id="@+id/item_gr_choice"
+            android:layout_width="16dp"
+            android:layout_height="16dp"
+            android:background="@drawable/choice_selector"
+            android:button="null"
+            app:layout_constraintBottom_toBottomOf="@id/item_gr_choice_bg"
+            app:layout_constraintLeft_toLeftOf="@id/item_gr_choice_bg"
+            app:layout_constraintRight_toRightOf="@id/item_gr_choice_bg"
+            app:layout_constraintTop_toTopOf="@id/item_gr_choice_bg" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_gr_sub_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="31dp"
+            android:layout_marginTop="10dp"
+            android:fontFamily="@font/nanumsquareround"
+            android:textColor="#909090"
+            android:textSize="10sp"
+            app:layout_constraintLeft_toRightOf="@id/item_gr_choice_bg"
+            app:layout_constraintTop_toTopOf="parent"
+            tools:text="어학점수1" />
+
+        <androidx.appcompat.widget.AppCompatTextView
+            android:id="@+id/item_gr_main_txt"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="6dp"
+            android:layout_marginEnd="31dp"
+            android:layout_marginBottom="10dp"
+            android:fontFamily="@font/nanumsquareround"
+            android:textColor="#171717"
+            android:textSize="16sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintHorizontal_bias="0"
+            app:layout_constraintLeft_toLeftOf="@id/item_gr_sub_txt"
+            app:layout_constraintRight_toRightOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/item_gr_sub_txt"
+            tools:text="토익 600점" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
