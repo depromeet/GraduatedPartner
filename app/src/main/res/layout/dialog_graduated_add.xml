@@ -59,7 +59,7 @@
             android:textColor="#171717"
             tools:text="토익 600점"
             android:fontFamily="@font/nanumsquareround"
-            android:background="null" />
+            android:background="@android:color/white" />
 
         <View
             android:layout_width="0dp"

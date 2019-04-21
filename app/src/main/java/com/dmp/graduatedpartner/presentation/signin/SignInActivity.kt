@@ -6,7 +6,9 @@ import android.os.Handler
 import android.view.View
 import android.widget.EditText
 import android.widget.Spinner
+import android.widget.Toast
 import androidx.databinding.DataBindingUtil
+import androidx.viewpager.widget.ViewPager
 import com.dmp.graduatedpartner.R
 import com.dmp.graduatedpartner.databinding.ActivitySigninBinding
 import com.dmp.graduatedpartner.presentation.base.BaseActivity
@@ -35,6 +37,30 @@ class SignInActivity : BaseActivity() {
         val viewPagerAdapter = SignInViewPagerAdapter(this@SignInActivity)
         viewpager_signin.adapter = viewPagerAdapter
         viewpager_signin.offscreenPageLimit = viewpager_signin.adapter?.count ?: 0
+
+        viewpager_signin.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+            override fun onPageScrollStateChanged(state: Int) {
+
+            }
+
+            override fun onPageScrolled(position: Int, positionOffset: Float, positionOffsetPixels: Int) {
+
+            }
+
+            override fun onPageSelected(position: Int) {
+                if(position == 2){
+                    btn_signin_confirm.visibility = View.VISIBLE
+                }
+                else{
+                    btn_signin_confirm.visibility = View.GONE
+                }
+            }
+        })
+
+        btn_signin_next.setOnClickListener {
+            viewpager_signin.currentItem += 1
+        }
+
         btn_signin_confirm.setOnClickListener {
             val userName = viewPagerAdapter.getView(0)?.findViewById<EditText>(R.id.edit_sigin1_name)?.text.emptyToNull()
             val totalSemester =
@@ -58,6 +84,9 @@ class SignInActivity : BaseActivity() {
                         ScoreActivity::class.java
                     ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 )
+            }
+            else{
+                Toast.makeText(this@SignInActivity, "기본 폼을 모두 입력해주세요", Toast.LENGTH_LONG).show()
             }
         }
     }

@@ -39,12 +39,33 @@
             app:layout_constraintTop_toBottomOf="@id/text_signin_backbutton"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
-        <Button
-            android:id="@+id/btn_signin_confirm"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+        <TextView
+            android:id="@+id/btn_signin_next"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:background="@drawable/yellowcircle"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="→"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintRight_toRightOf="parent"
-            android:text="⎷"/>
+            app:layout_constraintRight_toRightOf="parent"/>
+
+        <TextView
+            android:id="@+id/btn_signin_confirm"
+            android:layout_width="60dp"
+            android:layout_height="60dp"
+            android:gravity="center"
+            android:background="@drawable/bluecircle"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:text="⎷"
+            android:visibility="gone"
+            android:layout_marginBottom="20dp"
+            android:layout_marginEnd="20dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintRight_toRightOf="parent"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

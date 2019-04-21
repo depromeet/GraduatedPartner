@@ -94,6 +94,7 @@
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
             android:dropDownWidth="match_parent"
+            android:background="@drawable/ninepatch_gray"
             app:layout_constraintTop_toBottomOf="@id/view_signin1_mark2"
             app:layout_constraintLeft_toRightOf="@id/view_signin1_mark2"/>
 
@@ -127,6 +128,7 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
+            android:background="@drawable/ninepatch_gray"
             app:layout_constraintTop_toBottomOf="@id/view_signin1_mark3"
             app:layout_constraintLeft_toRightOf="@id/view_signin1_mark3"/>
     </androidx.constraintlayout.widget.ConstraintLayout>

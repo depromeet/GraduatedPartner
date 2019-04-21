@@ -9,7 +9,6 @@
             name="vm"
             type="com.dmp.graduatedpartner.presentation.score.ScoreViewModel"/>
     </data>
-
     <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -166,7 +165,9 @@
 
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/ninepatch_gray"
+                    android:padding="10dp">
                     <TextView
                         android:id="@+id/tv_score_total_grade_title"
                         android:layout_width="wrap_content"
@@ -230,7 +231,9 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ninepatch_gray"
+                    android:padding="10dp">
                     <TextView
                         android:id="@+id/tv_score_major_grade_title"
                         android:layout_width="wrap_content"
@@ -294,7 +297,9 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ninepatch_gray"
+                    android:padding="10dp">
                     <TextView
                         android:id="@+id/tv_score_culture_grade_title"
                         android:layout_width="wrap_content"
@@ -358,7 +363,9 @@
                 <androidx.constraintlayout.widget.ConstraintLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="10dp">
+                    android:layout_marginTop="10dp"
+                    android:background="@drawable/ninepatch_gray"
+                    android:padding="10dp">
                     <TextView
                         android:id="@+id/tv_score_etc_title"
                         android:layout_width="wrap_content"
@@ -454,6 +461,5 @@
                 android:background="@android:color/holo_red_dark"
                 app:layout_constraintTop_toBottomOf="@id/btn_score_edit2"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
-
     </androidx.core.widget.NestedScrollView>
 </layout>
