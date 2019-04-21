@@ -61,7 +61,7 @@
                 android:id="@+id/view_score_complete"
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
-                android:layout_marginTop="40dp"
+                android:layout_marginTop="30dp"
                 android:background="#14b7ff"
                 app:layout_constraintTop_toBottomOf="@id/btn_score_input_grade"/>
 
@@ -69,7 +69,7 @@
                 android:id="@+id/text_score_subtitle1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:text="이박님! 80학점 남으셨어요"
                 android:textSize="20sp"
                 android:textColor="#171717"
@@ -95,13 +95,204 @@
                 android:layout_marginTop="20dp"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                app:layout_constraintTop_toBottomOf="@id/text_score_subtitle1"/>
+                android:layout_marginStart="20dp"
+                android:layout_marginEnd="20dp"
+                app:layout_constraintTop_toBottomOf="@id/text_score_subtitle1">
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+                    <TextView
+                        android:id="@+id/tv_score_total_grade_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="전체 이수학점"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="56% 달성"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textColor="#ffffff"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/blue_rectangle_edgeround"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/tv_score_total_grade_title"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="45/123학점"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_score_total_grade_title"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:indeterminate="false"
+                        android:progressDrawable="@drawable/circular_progress_bar"
+                        android:background="@drawable/circle_shape"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:max="100"
+                        android:progress="65"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/tv_score_major_grade_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="전공 이수학점"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="56% 달성"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textColor="#ffffff"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/blue_rectangle_edgeround"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/tv_score_major_grade_title"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="45/123학점"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_score_major_grade_title"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:indeterminate="false"
+                        android:progressDrawable="@drawable/circular_progress_bar"
+                        android:background="@drawable/circle_shape"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:max="100"
+                        android:progress="65"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/tv_score_culture_grade_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="교양 이수학점"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="56% 달성"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textColor="#ffffff"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/blue_rectangle_edgeround"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/tv_score_culture_grade_title"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="45/123학점"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_score_culture_grade_title"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:indeterminate="false"
+                        android:progressDrawable="@drawable/circular_progress_bar"
+                        android:background="@drawable/circle_shape"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:max="100"
+                        android:progress="65"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+                <androidx.constraintlayout.widget.ConstraintLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="10dp">
+                    <TextView
+                        android:id="@+id/tv_score_etc_title"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="기타 이수학점"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="56% 달성"
+                        android:paddingStart="10dp"
+                        android:paddingEnd="10dp"
+                        android:textColor="#ffffff"
+                        android:layout_marginStart="10dp"
+                        android:background="@drawable/blue_rectangle_edgeround"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintLeft_toRightOf="@id/tv_score_etc_title"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="5dp"
+                        android:text="45/123학점"
+                        android:textSize="20sp"
+                        app:layout_constraintTop_toBottomOf="@id/tv_score_etc_title"
+                        app:layout_constraintLeft_toLeftOf="parent"/>
+
+                    <ProgressBar
+                        android:layout_width="wrap_content"
+                        android:layout_height="0dp"
+                        android:indeterminate="false"
+                        android:progressDrawable="@drawable/circular_progress_bar"
+                        android:background="@drawable/circle_shape"
+                        style="?android:attr/progressBarStyleHorizontal"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintBottom_toBottomOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"
+                        android:max="100"
+                        android:progress="65"/>
+                </androidx.constraintlayout.widget.ConstraintLayout>
+
+            </LinearLayout>
 
             <TextView
                 android:id="@+id/text_score_subtitle2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginTop="50dp"
+                android:layout_marginTop="30dp"
                 android:text="현재 성적을 등록해주세요...  ಠ‸ಠ "
                 android:textSize="20sp"
                 android:textColor="#171717"
@@ -121,7 +312,14 @@
                 app:layout_constraintBottom_toBottomOf="@id/text_score_subtitle2"
                 app:layout_constraintRight_toRightOf="parent"/>
 
-            <!--fixme : 그래프 자리-->
+            <!--fixme : 요기는 그래프 자리-->
+            <View
+                android:id="@+id/view_graph"
+                android:layout_width="match_parent"
+                android:layout_height="260dp"
+                android:layout_marginTop="30dp"
+                android:background="@android:color/holo_red_dark"
+                app:layout_constraintTop_toBottomOf="@id/btn_score_edit2"/>
         </androidx.constraintlayout.widget.ConstraintLayout>
 
     </androidx.core.widget.NestedScrollView>
