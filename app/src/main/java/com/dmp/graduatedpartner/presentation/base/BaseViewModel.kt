@@ -6,7 +6,7 @@ import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.disposables.Disposable
 
 abstract class BaseViewModel : ViewModel() {
-    val disposables = CompositeDisposable()
+    private val disposables = CompositeDisposable()
 
     override fun onCleared() {
         disposables.clear()

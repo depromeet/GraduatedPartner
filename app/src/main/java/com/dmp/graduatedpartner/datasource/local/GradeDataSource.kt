@@ -19,9 +19,9 @@ class GradeDataSource {
         }
 
     fun get(key: String): Single<Grade> =
-        Maybe.create<Grade> {
-            sharedPreference?.getString(key, null)?.let { gson.fromJson(it, Grade::class.java) }
-        }.switchIfEmpty(Single.create<Grade> { Grade(null) })
+        Single.create<Grade> { emitter ->
+            emitter.onSuccess(sharedPreference?.getString(key, null)?.let { gson.fromJson(it, Grade::class.java)} ?: Grade(null))
+        }
 
     companion object {
         const val FILE_NAME = "gp_grade"

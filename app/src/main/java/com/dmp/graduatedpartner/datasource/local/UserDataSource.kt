@@ -19,9 +19,15 @@ class UserDataSource {
         }
 
     fun get(key: String): Single<User> =
-        Maybe.create<User> {
-            sharedPreference?.getString(key, null)?.let { gson.fromJson(it, User::class.java) }
-        }.switchIfEmpty(Single.create<User> { User(null, null, null) })
+        Single.create<User> { emitter ->
+            emitter.onSuccess(sharedPreference?.getString(key, null)?.let { gson.fromJson(it, User::class.java) } ?: User(
+                null,
+                null,
+                null,
+                null,
+                null
+            ))
+        }
 
     companion object {
         const val FILE_NAME = "gp_user"

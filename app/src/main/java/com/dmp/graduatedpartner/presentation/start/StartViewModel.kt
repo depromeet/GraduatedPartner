@@ -1,8 +1,8 @@
 package com.dmp.graduatedpartner.presentation.start
 
+import com.dmp.graduatedpartner.const.USER_KEY
 import com.dmp.graduatedpartner.presentation.base.BaseViewModel
 import com.dmp.graduatedpartner.usecase.GetUser
-import io.reactivex.schedulers.Schedulers
 
 class StartViewModel(
     private val getUser: GetUser
@@ -14,8 +14,7 @@ class StartViewModel(
     }
 
     private fun updateUserExist() =
-        getUser("user")
-            .observeOn(Schedulers.io())
+        getUser(USER_KEY)
             .subscribeIgnoreError {
                 it.name?.let {
                     existedUser = true

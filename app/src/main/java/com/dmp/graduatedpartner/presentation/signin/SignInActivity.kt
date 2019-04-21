@@ -3,16 +3,18 @@ package com.dmp.graduatedpartner.presentation.signin
 import android.content.Intent
 import android.os.Bundle
 import android.view.View
+import android.widget.EditText
+import android.widget.Spinner
 import androidx.databinding.DataBindingUtil
 import com.dmp.graduatedpartner.R
 import com.dmp.graduatedpartner.databinding.ActivitySigninBinding
 import com.dmp.graduatedpartner.presentation.base.BaseActivity
+import com.dmp.graduatedpartner.presentation.score.ScoreActivity
 import com.dmp.graduatedpartner.presentation.signin.adapter.SignInViewPagerAdapter
 import com.dmp.graduatedpartner.presentation.start.StartActivity
+import com.dmp.graduatedpartner.utils.emptyToNull
 import kotlinx.android.synthetic.main.activity_signin.*
-import org.koin.android.ext.android.inject
 import org.koin.android.viewmodel.ext.android.viewModel
-import org.koin.core.parameter.parametersOf
 
 class SignInActivity : BaseActivity() {
     private val viewModel: SignInViewModel by viewModel()
@@ -28,9 +30,34 @@ class SignInActivity : BaseActivity() {
     }
 
     private fun bindView() {
-        viewpager_signin.adapter = SignInViewPagerAdapter(this@SignInActivity)
+        val viewPagerAdapter = SignInViewPagerAdapter(this@SignInActivity)
+        viewpager_signin.adapter = viewPagerAdapter
         viewpager_signin.offscreenPageLimit = viewpager_signin.adapter?.count ?: 0
-        //viewPagerAdapter.getView(0)?.findViewById<TextView>(R.id.text_signin1_title)?.setText("아아")
+        btn_signin_confirm.setOnClickListener {
+            val userName = viewPagerAdapter.getView(0)?.findViewById<EditText>(R.id.edit_sigin1_name)?.text.emptyToNull()
+            val totalSemester =
+                (viewPagerAdapter.getView(0)?.findViewById<Spinner>(R.id.spinner_sigin1_school)?.selectedItem as Int?)
+            val currentSemester =
+                (viewPagerAdapter.getView(0)?.findViewById<Spinner>(R.id.spinner_sigin1_current_grade)?.selectedItem as Int?)
+            val totalGrade = viewPagerAdapter.getView(1)?.findViewById<EditText>(R.id.edit_sigin2_total_grade)?.text.emptyToNull()
+            val currentGrade = viewPagerAdapter.getView(2)?.findViewById<EditText>(R.id.edit_sigin3_my_grade)?.text.emptyToNull()
+
+            if (userName != null && totalSemester != null && currentSemester != null && totalGrade != null && currentGrade != null) {
+                viewModel.setData(
+                    userName.toString(),
+                    totalSemester,
+                    currentSemester,
+                    totalGrade.toString().toInt(),
+                    currentGrade.toString().toInt()
+                )
+                startActivity(
+                    Intent(
+                        this@SignInActivity,
+                        ScoreActivity::class.java
+                    ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                )
+            }
+        }
     }
 
     fun onPressBackButton(view: View) {

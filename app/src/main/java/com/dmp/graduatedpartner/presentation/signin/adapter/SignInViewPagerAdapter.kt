@@ -28,16 +28,29 @@ class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
             when (position) {
                 0 -> {
                     spinner_sigin1_school.adapter = CollegeTypeAdapter(context)
-                    spinner_sigin1_school.onItemSelectedListener = object : OnItemSelectedListener{
+                    spinner_sigin1_school.onItemSelectedListener = object : OnItemSelectedListener {
                         override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                             spinner_sigin1_current_grade.adapter = CurrentGradeAdapter(context, parent?.selectedItem as Int)
-                            spinner_sigin1_total_grade.adapter = TotalGradeAdapter(context, parent?.selectedItem as Int)
                         }
 
                         override fun onNothingSelected(parent: AdapterView<*>?) {
 
                         }
                     }
+                }
+
+                1 -> {
+//                    btn_siginin2_addButton.setOnClickListener {
+//                        LayoutInflater.from(context)
+//                            .inflate(R.layout.item_signin2_graduate_input, container, false)
+//                            ?.apply {
+//                                getView(1)?.findViewById<LinearLayout>(R.id.linear_signin2_require_list)?.addView(this)
+//                            }
+//                    }
+                }
+
+                2 -> {
+
                 }
             }
         }

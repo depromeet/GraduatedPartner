@@ -50,16 +50,19 @@
             android:id="@+id/edit_sigin3_my_grade"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:inputType="number"
             android:minHeight="50dp"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
             android:focusable="true"
+            android:maxLength="3"
             android:focusableInTouchMode="true"
             app:layout_constraintTop_toBottomOf="@id/view_signin3_mark1"
             app:layout_constraintLeft_toRightOf="@id/view_signin3_mark1"/>
 
         <TextView
+            android:id="@+id/view_signin3_mark2"
             android:padding="5dp"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -74,5 +77,21 @@
             app:layout_constraintLeft_toLeftOf="@id/view_signin3_mark1"
             app:layout_constraintTop_toBottomOf="@id/edit_sigin3_my_grade"/>
 
+        <LinearLayout
+            android:id="@+id/linear_signin3_require_list"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp"
+            android:layout_marginTop="20dp"
+            android:orientation="vertical"
+            app:layout_constraintTop_toBottomOf="@id/view_signin3_mark2"
+            app:layout_constraintLeft_toLeftOf="@id/view_signin3_mark2">
+            <!--<include layout="@layout/item_signin2_graduate_input"/>-->
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="현재 미구현 기능입니다."/>
+        </LinearLayout>
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

@@ -55,6 +55,8 @@
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"
+            android:inputType="number"
+            android:maxLength="3"
             android:focusable="true"
             android:focusableInTouchMode="true"
             app:layout_constraintTop_toBottomOf="@id/tv_sign2_total_grade"
@@ -91,7 +93,18 @@
             android:layout_marginTop="20dp"
             android:orientation="vertical"
             app:layout_constraintTop_toBottomOf="@id/view_signin2_mark2"
-            app:layout_constraintLeft_toLeftOf="@id/view_signin2_mark2"/>
+            app:layout_constraintLeft_toLeftOf="@id/view_signin2_mark2">
+            <!--<include layout="@layout/item_signin2_graduate_input"/>-->
+            <TextView android:layout_width="match_parent" android:layout_height="wrap_content"
+                android:text="현재 미구현 기능입니다."/>
+        </LinearLayout>
+
+        <!--<Button-->
+            <!--android:id="@+id/btn_siginin2_addButton"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--app:layout_constraintTop_toBottomOf="@id/linear_signin2_require_list"-->
+            <!--android:text="추가"/>-->
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </androidx.core.widget.NestedScrollView>

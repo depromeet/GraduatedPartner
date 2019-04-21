@@ -26,14 +26,15 @@ class StartActivity : BaseActivity() {
     }
 
     fun onClickStartButton(view: View) {
-        val nextIntent = Intent(
-            this@StartActivity,
-            if (viewModel.existedUser) {
-                ScoreActivity::class.java
-            } else {
-                SignInActivity::class.java
-            }
-        ).addFlags(FLAG_ACTIVITY_CLEAR_TASK or FLAG_ACTIVITY_NEW_TASK)
-        startActivity(nextIntent)
+        startActivity(
+            Intent(
+                this@StartActivity,
+                if (viewModel.existedUser) {
+                    ScoreActivity::class.java
+                } else {
+                    SignInActivity::class.java
+                }
+            ).addFlags(FLAG_ACTIVITY_CLEAR_TASK or FLAG_ACTIVITY_NEW_TASK)
+        )
     }
 }
