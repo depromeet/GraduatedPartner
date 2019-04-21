@@ -58,13 +58,76 @@
                 app:layout_constraintBottom_toBottomOf="@id/text_score_title"
                 app:layout_constraintRight_toRightOf="parent"/>
 
-            <View
+            <androidx.constraintlayout.widget.ConstraintLayout
                 android:id="@+id/view_score_complete"
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
                 android:layout_marginTop="30dp"
                 android:background="#14b7ff"
-                app:layout_constraintTop_toBottomOf="@id/btn_score_input_grade"/>
+                app:layout_constraintTop_toBottomOf="@id/btn_score_input_grade">
+
+                <TextView
+                    android:id="@+id/tv_score_graduate_progress_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:text="졸업 진행률"
+                    android:textSize="20sp"
+                    android:layout_marginStart="30dp"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent"/>
+
+                <ProgressBar
+                    android:id="@+id/pg_score_total_title"
+                    android:layout_width="150dp"
+                    android:layout_height="0dp"
+                    android:indeterminate="false"
+                    android:progressDrawable="@drawable/circular_progress_bar_thick"
+                    android:background="@drawable/circle_shape_thick"
+                    style="?android:attr/progressBarStyleHorizontal"
+                    app:layout_constraintTop_toBottomOf="@id/tv_score_graduate_progress_title"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintStart_toStartOf="@id/tv_score_graduate_progress_title"
+                    android:max="100"
+                    android:progress='@{vm.totalPercent}'
+                    tools:progress="65"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text='@{vm.totalPercent + "%"}'
+                    android:textColor="#ffffff"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    app:layout_constraintTop_toTopOf="@id/pg_score_total_title"
+                    app:layout_constraintStart_toStartOf="@id/pg_score_total_title"
+                    app:layout_constraintEnd_toEndOf="@id/pg_score_total_title"
+                    app:layout_constraintBottom_toBottomOf="@id/pg_score_total_title"
+                    tools:text="65%"/>
+
+                <TextView
+                    android:id="@+id/tv_score_graduate_detail_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:text="이수하지 않은 졸업요건"
+                    android:textSize="20sp"
+                    android:layout_marginStart="10dp"
+                    app:layout_constraintTop_toTopOf="@id/tv_score_graduate_progress_title"
+                    app:layout_constraintLeft_toRightOf="@id/pg_score_total_title"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textColor="#ffffff"
+                    android:text="현재 구현되지\n않은 기능입니다."
+                    android:textSize="20sp"
+                    android:layout_marginTop="30dp"
+                    app:layout_constraintTop_toBottomOf="@id/tv_score_graduate_detail_title"
+                    app:layout_constraintStart_toStartOf="@id/tv_score_graduate_detail_title"
+                    app:layout_constraintEnd_toEndOf="parent"/>
+            </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView
                 android:id="@+id/text_score_subtitle1"
@@ -133,10 +196,10 @@
                         android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@id/tv_score_total_grade_title"
                         app:layout_constraintLeft_toLeftOf="parent"
-                        tools:text="32/123학점"
-                    />
+                        tools:text="32/123학점"/>
 
                     <ProgressBar
+                        android:id="@+id/pg_score_total"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:indeterminate="false"
@@ -149,6 +212,19 @@
                         android:max="100"
                         android:progress='@{vm.totalPercent}'
                         tools:progress="65"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{vm.totalPercent + "%"}'
+                        android:textColor="#707070"
+                        android:textSize="9sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="@id/pg_score_total"
+                        app:layout_constraintStart_toStartOf="@id/pg_score_total"
+                        app:layout_constraintEnd_toEndOf="@id/pg_score_total"
+                        app:layout_constraintBottom_toBottomOf="@id/pg_score_total"
+                        tools:text="65%"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -166,7 +242,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="56% 달성"
+                        android:text='@{vm.majorPercent + "% 달성"}'
+                        tools:text="56% 달성"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
                         android:textColor="#ffffff"
@@ -179,12 +256,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="45/123학점"
+                        android:text='@{vm.majorGrade.current + "/" + vm.majorGrade.total + "학점"}'
+                        tools:text="45/123학점"
                         android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@id/tv_score_major_grade_title"
                         app:layout_constraintLeft_toLeftOf="parent"/>
 
                     <ProgressBar
+                        android:id="@+id/pg_score_major"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:indeterminate="false"
@@ -195,7 +274,21 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         android:max="100"
-                        android:progress="65"/>
+                        android:progress="@{vm.majorPercent}"
+                        tools:progress="65"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{vm.majorPercent + "%"}'
+                        android:textColor="#707070"
+                        android:textSize="9sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="@id/pg_score_major"
+                        app:layout_constraintStart_toStartOf="@id/pg_score_major"
+                        app:layout_constraintEnd_toEndOf="@id/pg_score_major"
+                        app:layout_constraintBottom_toBottomOf="@id/pg_score_major"
+                        tools:text="65%"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -213,7 +306,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="56% 달성"
+                        android:text='@{vm.culturePercent + "% 달성"}'
+                        tools:text="56% 달성"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
                         android:textColor="#ffffff"
@@ -226,12 +320,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="45/123학점"
+                        android:text='@{vm.cultureGrade.current + "/" + vm.cultureGrade.total + "학점"}'
+                        tools:text="45/123학점"
                         android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@id/tv_score_culture_grade_title"
                         app:layout_constraintLeft_toLeftOf="parent"/>
 
                     <ProgressBar
+                        android:id="@+id/pg_score_culture"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:indeterminate="false"
@@ -242,7 +338,21 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         android:max="100"
-                        android:progress="65"/>
+                        android:progress="@{vm.culturePercent}"
+                        tools:progress="65"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{vm.culturePercent + "%"}'
+                        android:textColor="#707070"
+                        android:textSize="9sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="@id/pg_score_culture"
+                        app:layout_constraintStart_toStartOf="@id/pg_score_culture"
+                        app:layout_constraintEnd_toEndOf="@id/pg_score_culture"
+                        app:layout_constraintBottom_toBottomOf="@id/pg_score_culture"
+                        tools:text="65%"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout
@@ -260,7 +370,8 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="56% 달성"
+                        android:text='@{vm.etcPercent + "% 달성"}'
+                        tools:text="56% 달성"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
                         android:textColor="#ffffff"
@@ -273,12 +384,14 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="45/123학점"
+                        android:text='@{vm.etcGrade.current + "/" + vm.etcGrade.total + "학점"}'
+                        tools:text="45/123학점"
                         android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@id/tv_score_etc_title"
                         app:layout_constraintLeft_toLeftOf="parent"/>
 
                     <ProgressBar
+                        android:id="@+id/pg_score_etc"
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:indeterminate="false"
@@ -289,7 +402,21 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         android:max="100"
-                        android:progress="65"/>
+                        android:progress="@{vm.etcPercent}"
+                        tools:progress="65"/>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text='@{vm.etcPercent + "%"}'
+                        android:textColor="#707070"
+                        android:textSize="9sp"
+                        android:textStyle="bold"
+                        app:layout_constraintTop_toTopOf="@id/pg_score_etc"
+                        app:layout_constraintStart_toStartOf="@id/pg_score_etc"
+                        app:layout_constraintEnd_toEndOf="@id/pg_score_etc"
+                        app:layout_constraintBottom_toBottomOf="@id/pg_score_etc"
+                        tools:text="65%"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
             </LinearLayout>

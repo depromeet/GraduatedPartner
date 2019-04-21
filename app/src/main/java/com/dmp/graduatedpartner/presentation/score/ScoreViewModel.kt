@@ -19,9 +19,13 @@ class ScoreViewModel(private val getUserUsecase: GetUserUsecase, private val get
     val majorPercent = MutableLiveData<Int>()
 
     val cultureGrade = MutableLiveData<Grade>()
+    val culturePercent = MutableLiveData<Int>()
+
     val etcGrade = MutableLiveData<Grade>()
+    val etcPercent = MutableLiveData<Int>()
 
     init {
+        getUserInfo()
         Handler().postDelayed(
             {
                 getUserInfo()
@@ -48,15 +52,42 @@ class ScoreViewModel(private val getUserUsecase: GetUserUsecase, private val get
             }.bind()
 
             getGradeUsecase(MAJOR_GRADE_KEY).subscribeIgnoreError { grade ->
-                majorGrade.postValue(grade)
+                if (grade.total != null && grade.current != null) {
+                    majorGrade.postValue(grade)
+                    majorPercent.postValue(
+                        if (grade.total == 0) {
+                            100
+                        } else {
+                            grade.current * 100 / grade.total
+                        }
+                    )
+                }
             }.bind()
 
             getGradeUsecase(CULTURE_GRADE_KEY).subscribeIgnoreError { grade ->
-                cultureGrade.postValue(grade)
+                if (grade.total != null && grade.current != null) {
+                    cultureGrade.postValue(grade)
+                    culturePercent.postValue(
+                        if (grade.total == 0) {
+                            100
+                        } else {
+                            grade.current * 100 / grade.total
+                        }
+                    )
+                }
             }.bind()
 
             getGradeUsecase(ETC_GRADE_KEY).subscribeIgnoreError { grade ->
-                etcGrade.postValue(grade)
+                if (grade.total != null && grade.current != null) {
+                    etcGrade.postValue(grade)
+                    etcPercent.postValue(
+                        if (grade.total == 0) {
+                            100
+                        } else {
+                            grade.current * 100 / grade.total
+                        }
+                    )
+                }
             }.bind()
         }.bind()
 }
