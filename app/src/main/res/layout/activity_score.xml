@@ -4,6 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <data>
+        <import type="android.view.View"/>
         <variable
             name="vm"
             type="com.dmp.graduatedpartner.presentation.score.ScoreViewModel"/>
@@ -70,12 +71,13 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text="이박님! 80학점 남으셨어요"
+                android:text='@{vm.userName + "님! " + (vm.totalGrade.total - vm.totalGrade.current > 0 ? vm.totalGrade.total - vm.totalGrade.current : 0) + "학점 남으셨어요." }'
                 android:textSize="20sp"
                 android:textColor="#171717"
                 android:layout_marginStart="20dp"
                 app:layout_constraintTop_toBottomOf="@id/view_score_complete"
-                app:layout_constraintLeft_toLeftOf="parent"/>
+                app:layout_constraintLeft_toLeftOf="parent"
+                tools:text="이박님! 80학점 남으셨어요."/>
 
             <TextView
                 android:id="@+id/btn_score_edit1"
@@ -113,23 +115,26 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="56% 달성"
+                        android:text='@{vm.totalPercent + "% 달성"}'
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
                         android:textColor="#ffffff"
                         android:layout_marginStart="10dp"
                         android:background="@drawable/blue_rectangle_edgeround"
                         app:layout_constraintTop_toTopOf="parent"
-                        app:layout_constraintLeft_toRightOf="@id/tv_score_total_grade_title"/>
+                        app:layout_constraintLeft_toRightOf="@id/tv_score_total_grade_title"
+                        tools:text="56% 달성"/>
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text="45/123학점"
+                        android:text='@{vm.totalGrade.current + "/" + vm.totalGrade.total + "학점"}'
                         android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@id/tv_score_total_grade_title"
-                        app:layout_constraintLeft_toLeftOf="parent"/>
+                        app:layout_constraintLeft_toLeftOf="parent"
+                        tools:text="32/123학점"
+                    />
 
                     <ProgressBar
                         android:layout_width="wrap_content"
@@ -142,7 +147,8 @@
                         app:layout_constraintBottom_toBottomOf="parent"
                         app:layout_constraintEnd_toEndOf="parent"
                         android:max="100"
-                        android:progress="65"/>
+                        android:progress='@{vm.totalPercent}'
+                        tools:progress="65"/>
                 </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <androidx.constraintlayout.widget.ConstraintLayout

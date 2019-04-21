@@ -20,13 +20,8 @@ class UserDataSource {
 
     fun get(key: String): Single<User> =
         Single.create<User> { emitter ->
-            emitter.onSuccess(sharedPreference?.getString(key, null)?.let { gson.fromJson(it, User::class.java) } ?: User(
-                null,
-                null,
-                null,
-                null,
-                null
-            ))
+            emitter.onSuccess(sharedPreference?.getString(key, null)?.let { gson.fromJson(it, User::class.java) }
+                ?: User(null, null, null))
         }
 
     companion object {
