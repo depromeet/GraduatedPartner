@@ -13,27 +13,37 @@
             android:text="@string/str_graduated_delete_title"
             android:textColor="#171717"
             android:textSize="14sp"
-            app:layout_constraintBottom_toBottomOf="@id/graduated_delete_back"
+            app:layout_constraintBottom_toBottomOf="@id/graduated_detail_back_btn"
             app:layout_constraintLeft_toLeftOf="parent"
             app:layout_constraintRight_toRightOf="parent"
-            app:layout_constraintTop_toTopOf="@id/graduated_delete_back" />
+            app:layout_constraintTop_toTopOf="@id/graduated_detail_back_btn" />
+
+        <View
+            android:id="@+id/graduated_detail_back_space"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            app:layout_constraintBottom_toBottomOf="@id/graduated_detail_back_btn"
+            app:layout_constraintLeft_toLeftOf="@id/graduated_detail_back_btn"
+            app:layout_constraintRight_toRightOf="@id/graduated_detail_back_btn"
+            app:layout_constraintTop_toTopOf="@id/graduated_detail_back_btn" />
 
         <androidx.appcompat.widget.AppCompatImageView
-            android:id="@+id/graduated_delete_back"
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:layout_marginStart="13dp"
-            android:layout_marginTop="23dp"
+            android:id="@+id/graduated_detail_back_btn"
+            android:layout_width="15dp"
+            android:layout_height="5dp"
+            android:layout_marginStart="21dp"
+            android:layout_marginTop="34dp"
             app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            app:srcCompat="@drawable/back_btn" />
 
         <fragment
             android:id="@+id/graduated_delete_fragment"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            android:layout_marginTop="33dp"
+            android:layout_marginTop="47dp"
             app:layout_constraintBottom_toBottomOf="parent"
-            app:layout_constraintTop_toBottomOf="@id/graduated_delete_back" />
+            app:layout_constraintTop_toBottomOf="@id/graduated_detail_back_btn" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -57,13 +57,16 @@
             app:layout_constraintTop_toTopOf="@id/semester_start_flower_first" />
 
         <Spinner
+            android:id="@+id/semester_start_now_spinner"
             android:layout_width="0dp"
             android:layout_height="40dp"
-            android:layout_marginEnd="20dp"
             android:layout_marginTop="13dp"
+            android:layout_marginEnd="20dp"
+            android:textColor="#171717"
+            android:textSize="16sp"
             app:layout_constraintLeft_toLeftOf="@id/semester_start_flower_first"
-            app:layout_constraintTop_toBottomOf="@id/semester_start_flower_first"
-            app:layout_constraintRight_toRightOf="@id/semester_start_container"/>
+            app:layout_constraintRight_toRightOf="@id/semester_start_container"
+            app:layout_constraintTop_toBottomOf="@id/semester_start_flower_first" />
 
         <View
             android:id="@+id/semester_start_flower_second"
@@ -86,6 +89,44 @@
             app:layout_constraintLeft_toRightOf="@id/semester_start_flower_second"
             app:layout_constraintTop_toTopOf="@id/semester_start_flower_second" />
 
+        <Spinner
+            android:id="@+id/semester_start_opening_year"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="6dp"
+            android:textColor="#171717"
+            android:textSize="16sp"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="@id/semester_start_flower_second"
+            app:layout_constraintRight_toLeftOf="@id/semester_start_opening_month"
+            app:layout_constraintTop_toBottomOf="@id/semester_start_flower_second" />
+
+        <Spinner
+            android:id="@+id/semester_start_opening_month"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="6dp"
+            android:textColor="#171717"
+            android:textSize="16sp"
+            app:layout_constraintHorizontal_weight="0.7"
+            app:layout_constraintLeft_toRightOf="@id/semester_start_opening_year"
+            app:layout_constraintRight_toLeftOf="@id/semester_start_opening_day"
+            app:layout_constraintTop_toTopOf="@id/semester_start_opening_year" />
+
+        <Spinner
+            android:id="@+id/semester_start_opening_day"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:textColor="#171717"
+            android:textSize="16sp"
+            app:layout_constraintHorizontal_weight="0.7"
+            app:layout_constraintLeft_toRightOf="@id/semester_start_opening_month"
+            app:layout_constraintRight_toRightOf="@id/semester_start_container"
+            app:layout_constraintTop_toTopOf="@id/semester_start_opening_year" />
+
         <View
             android:id="@+id/semester_start_flower_third"
             android:layout_width="2dp"
@@ -107,25 +148,63 @@
             app:layout_constraintLeft_toRightOf="@id/semester_start_flower_third"
             app:layout_constraintTop_toTopOf="@id/semester_start_flower_third" />
 
+        <Spinner
+            android:id="@+id/semester_start_endsteel_year"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginTop="13dp"
+            android:layout_marginEnd="6dp"
+            android:textColor="#171717"
+            android:textSize="16sp"
+            app:layout_constraintHorizontal_chainStyle="spread"
+            app:layout_constraintHorizontal_weight="1"
+            app:layout_constraintLeft_toLeftOf="@id/semester_start_flower_third"
+            app:layout_constraintRight_toLeftOf="@id/semester_start_endsteel_month"
+            app:layout_constraintTop_toBottomOf="@id/semester_start_flower_third" />
+
+        <Spinner
+            android:id="@+id/semester_start_endsteel_month"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="6dp"
+            android:textColor="#171717"
+            android:textSize="16sp"
+            app:layout_constraintHorizontal_weight="0.7"
+            app:layout_constraintLeft_toRightOf="@id/semester_start_endsteel_year"
+            app:layout_constraintRight_toLeftOf="@id/semester_start_endsteel_day"
+            app:layout_constraintTop_toTopOf="@id/semester_start_endsteel_year" />
+
+        <Spinner
+            android:id="@+id/semester_start_endsteel_day"
+            android:layout_width="0dp"
+            android:layout_height="40dp"
+            android:layout_marginEnd="20dp"
+            android:textColor="#171717"
+            android:textSize="16sp"
+            app:layout_constraintHorizontal_weight="0.7"
+            app:layout_constraintLeft_toRightOf="@id/semester_start_endsteel_month"
+            app:layout_constraintRight_toRightOf="@id/semester_start_container"
+            app:layout_constraintTop_toTopOf="@id/semester_start_endsteel_year" />
+
         <androidx.legacy.widget.Space
             android:id="@+id/semester_start_container_bottom"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            app:layout_constraintLeft_toLeftOf="parent"
-            app:layout_constraintBottom_toBottomOf="@id/semester_start_container"/>
+            app:layout_constraintBottom_toBottomOf="@id/semester_start_container"
+            app:layout_constraintLeft_toLeftOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:background="@drawable/common_dialog_btn"
-            android:textSize="12sp"
+            android:gravity="center"
+            android:text="@string/str_start"
             android:textColor="#ffffff"
+            android:textSize="12sp"
+            app:layout_constraintBottom_toBottomOf="@id/semester_start_container_bottom"
             app:layout_constraintLeft_toLeftOf="@id/semester_start_container"
             app:layout_constraintRight_toRightOf="@id/semester_start_container"
-            app:layout_constraintTop_toTopOf="@id/semester_start_container_bottom"
-            app:layout_constraintBottom_toBottomOf="@id/semester_start_container_bottom"
-            android:gravity="center"
-            android:text="@string/str_start"/>
+            app:layout_constraintTop_toTopOf="@id/semester_start_container_bottom" />
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 </layout>

@@ -14,7 +14,7 @@
             android:layout_height="wrap_content"
             android:layout_marginBottom="20dp"
             android:gravity="center"
-            android:text="@string/str_graduated_add"
+            android:text="@string/str_graduated_add_title"
             android:textColor="#ffffff"
             android:textSize="22sp"
             app:layout_constraintBottom_toTopOf="@id/graduated_add_container"
@@ -57,7 +57,6 @@
             android:layout_marginStart="24dp"
             android:textSize="16sp"
             android:textColor="#171717"
-            tools:text="토익 600점"
             android:fontFamily="@font/nanumsquareround"
             android:background="@android:color/white" />
 
