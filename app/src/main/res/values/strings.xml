@@ -5,6 +5,8 @@
     <string name="str_semester_start_flower_second">개강일</string>
     <string name="str_semester_start_flower_third">종강일</string>
     <string name="str_start">시작</string>
-    <string name="str_graduated_add">졸업요건을 추가하세요</string>
+    <string name="str_graduated_add_title">졸업요건을 추가하세요</string>
     <string name="str_graduated_delete_title">졸업 요건</string>
+    <string name="str_graduated_delete">삭제하기</string>
+    <string name="str_graduated_add">추가하기</string>
 </resources>
