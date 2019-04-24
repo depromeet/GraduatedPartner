@@ -95,7 +95,7 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text='@{vm.totalPercent + "%"}'
+                    android:text="@{@string/score_percent(vm.totalPercent)}"
                     android:textColor="#ffffff"
                     android:textSize="18sp"
                     android:textStyle="bold"
@@ -133,7 +133,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="30dp"
-                android:text='@{vm.userName + "님! " + (vm.totalGrade.total - vm.totalGrade.current > 0 ? vm.totalGrade.total - vm.totalGrade.current : 0) + "학점 남으셨어요." }'
+                android:text="@{@string/score_subtitle(vm.userName, (vm.totalGrade.total - vm.totalGrade.current > 0 ? vm.totalGrade.total - vm.totalGrade.current : 0))}"
                 android:textSize="20sp"
                 android:textColor="#171717"
                 android:layout_marginStart="20dp"
@@ -179,7 +179,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text='@{vm.totalPercent + "% 달성"}'
+                        android:text='@{@string/score_success_percent(vm.totalPercent)}'
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
                         android:textColor="#ffffff"
@@ -193,7 +193,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text='@{vm.totalGrade.current + "/" + vm.totalGrade.total + "학점"}'
+                        android:text='@{@string/score_slash_grade(vm.totalGrade.current, vm.totalGrade.total)}'
                         android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@id/tv_score_total_grade_title"
                         app:layout_constraintLeft_toLeftOf="parent"
@@ -217,7 +217,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text='@{vm.totalPercent + "%"}'
+                        android:text='@{@string/score_percent(vm.totalPercent)}'
                         android:textColor="#707070"
                         android:textSize="9sp"
                         android:textStyle="bold"
@@ -245,7 +245,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text='@{vm.majorPercent + "% 달성"}'
+                        android:text='@{@string/score_success_percent(vm.majorPercent)}'
                         tools:text="56% 달성"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
@@ -259,7 +259,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text='@{vm.majorGrade.current + "/" + vm.majorGrade.total + "학점"}'
+                        android:text='@{@string/score_slash_grade(vm.majorGrade.current, vm.majorGrade.total)}'
                         tools:text="45/123학점"
                         android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@id/tv_score_major_grade_title"
@@ -283,7 +283,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text='@{vm.majorPercent + "%"}'
+                        android:text='@{@string/score_percent(vm.majorPercent)}'
                         android:textColor="#707070"
                         android:textSize="9sp"
                         android:textStyle="bold"
@@ -311,7 +311,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text='@{vm.culturePercent + "% 달성"}'
+                        android:text='@{@string/score_success_percent(vm.culturePercent)}'
                         tools:text="56% 달성"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
@@ -325,7 +325,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text='@{vm.cultureGrade.current + "/" + vm.cultureGrade.total + "학점"}'
+                        android:text='@{@string/score_slash_grade(vm.cultureGrade.current, vm.cultureGrade.total)}'
                         tools:text="45/123학점"
                         android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@id/tv_score_culture_grade_title"
@@ -349,7 +349,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text='@{vm.culturePercent + "%"}'
+                        android:text='@{@string/score_percent(vm.culturePercent)}'
                         android:textColor="#707070"
                         android:textSize="9sp"
                         android:textStyle="bold"
@@ -377,7 +377,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text='@{vm.etcPercent + "% 달성"}'
+                        android:text='@{@string/score_success_percent(vm.etcPercent)}'
                         tools:text="56% 달성"
                         android:paddingStart="10dp"
                         android:paddingEnd="10dp"
@@ -391,7 +391,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
-                        android:text='@{vm.etcGrade.current + "/" + vm.etcGrade.total + "학점"}'
+                        android:text='@{@string/score_slash_grade(vm.etcGrade.current, vm.etcGrade.total)}'
                         tools:text="45/123학점"
                         android:textSize="20sp"
                         app:layout_constraintTop_toBottomOf="@id/tv_score_etc_title"
@@ -415,7 +415,7 @@
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text='@{vm.etcPercent + "%"}'
+                        android:text='@{@string/score_percent(vm.etcPercent)}'
                         android:textColor="#707070"
                         android:textSize="9sp"
                         android:textStyle="bold"

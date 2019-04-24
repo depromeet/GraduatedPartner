@@ -24,7 +24,7 @@ class ScoreViewModel(private val getUserUsecase: GetUserUsecase, private val get
     val etcGrade = MutableLiveData<Grade>()
     val etcPercent = MutableLiveData<Int>()
 
-    init {
+    fun getUserInfoTwice() {
         getUserInfo()
         Handler().postDelayed(
             {

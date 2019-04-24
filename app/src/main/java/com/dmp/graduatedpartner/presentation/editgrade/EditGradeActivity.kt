@@ -8,7 +8,7 @@ import com.dmp.graduatedpartner.presentation.base.BaseActivity
 import kotlinx.android.synthetic.main.activity_edit_grade.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class EditGradeActivity : BaseActivity(){
+class EditGradeActivity : BaseActivity() {
     private val viewModel: EditGradeViewModel by viewModel()
 
     private val binding by lazy {
@@ -21,8 +21,19 @@ class EditGradeActivity : BaseActivity(){
         binding.lifecycleOwner = this
 
         btn_grade_save.setOnClickListener {
-            //fixme
-            viewModel.saveGrade()
+            viewModel.saveGrade(
+                et_grade_major_current.text.toString().toInt(),
+                et_grade_major_total.text.toString().toInt(),
+                et_grade_culture_current.text.toString().toInt(),
+                et_grade_culture_total.text.toString().toInt(),
+                et_grade_etc_current.text.toString().toInt(),
+                et_grade_etc_total.text.toString().toInt()
+            )
+            finish()
+        }
+
+        text_editgrade_back.setOnClickListener {
+            finish()
         }
     }
 }

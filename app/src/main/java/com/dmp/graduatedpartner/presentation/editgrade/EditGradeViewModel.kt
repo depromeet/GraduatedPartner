@@ -21,7 +21,7 @@ class EditGradeViewModel(
         getGrade()
     }
 
-    private fun getGrade(){
+    private fun getGrade() {
         getGradeusecase(MAJOR_GRADE_KEY).subscribeIgnoreError {
             majorGrade.postValue(it)
         }.bind()
@@ -35,8 +35,10 @@ class EditGradeViewModel(
         }.bind()
     }
 
-    fun saveGrade(){
-        //fixme
-        //editGradeUsecase()
+    fun saveGrade(
+        majorCurrent: Int, majorTotal: Int, cultureCurrent: Int,
+        cultureTotal: Int, etcCurrent: Int, etcTotal: Int
+    ) {
+        editGradeUsecase(majorCurrent, majorTotal, cultureCurrent, cultureTotal, etcCurrent, etcTotal)
     }
 }
