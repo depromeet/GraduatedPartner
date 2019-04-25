@@ -1,7 +1,12 @@
 package com.dmp.graduatedpartner.presentation.score
 
+import android.app.Dialog
 import android.content.Intent
+import android.graphics.Color
+import android.graphics.drawable.ColorDrawable
 import android.os.Bundle
+import android.view.WindowManager
+import android.widget.TextView
 import androidx.databinding.DataBindingUtil
 import com.dmp.graduatedpartner.R
 import com.dmp.graduatedpartner.databinding.ActivityScoreBinding
@@ -32,6 +37,17 @@ class ScoreActivity : BaseActivity() {
             )
         }
         viewModel.getUserInfoTwice()
+
+        val guideDialog = Dialog(this)
+        guideDialog.setContentView(R.layout.dialog_score_guide)
+        guideDialog.findViewById<TextView>(R.id.tv_score_guide_btn).setOnClickListener {
+            guideDialog.dismiss()
+        }
+        guideDialog.create()
+        guideDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+        guideDialog.window?.attributes?.width = WindowManager.LayoutParams.MATCH_PARENT
+        guideDialog.window?.attributes?.height = WindowManager.LayoutParams.MATCH_PARENT
+        guideDialog.show()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
