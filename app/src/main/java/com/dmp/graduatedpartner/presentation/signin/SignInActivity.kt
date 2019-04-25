@@ -3,8 +3,10 @@ package com.dmp.graduatedpartner.presentation.signin
 import android.content.Intent
 import android.os.Bundle
 import android.os.Handler
+import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
+import android.widget.ImageView
 import android.widget.Spinner
 import android.widget.Toast
 import androidx.databinding.DataBindingUtil
@@ -35,10 +37,25 @@ class SignInActivity : BaseActivity() {
 
     private fun bindView() {
         val viewPagerAdapter = SignInViewPagerAdapter(this@SignInActivity)
+        val indicator = ArrayList<View>()
+        for (i in 0..2) {
+            indicator.add(
+                LayoutInflater.from(this).inflate(
+                    R.layout.item_score_indicator,
+                    linear_signin_indicators,
+                    false
+                )
+            )
+            linear_signin_indicators.addView(indicator[i])
+            if(i == 0){
+                indicator[i].findViewById<ImageView>(R.id.indicator).setImageResource(R.drawable.yellowcircle)
+            }
+        }
+
         viewpager_signin.adapter = viewPagerAdapter
         viewpager_signin.offscreenPageLimit = viewpager_signin.adapter?.count ?: 0
 
-        viewpager_signin.addOnPageChangeListener(object : ViewPager.OnPageChangeListener{
+        viewpager_signin.addOnPageChangeListener(object : ViewPager.OnPageChangeListener {
             override fun onPageScrollStateChanged(state: Int) {
 
             }
@@ -48,10 +65,17 @@ class SignInActivity : BaseActivity() {
             }
 
             override fun onPageSelected(position: Int) {
-                if(position == 2){
-                    btn_signin_confirm.visibility = View.VISIBLE
+                for (i in 0..2) {
+                    if (position == i) {
+                        indicator[i].findViewById<ImageView>(R.id.indicator).setImageResource(R.drawable.yellowcircle)
+                    } else {
+                        indicator[i].findViewById<ImageView>(R.id.indicator).setImageResource(R.drawable.graycircle)
+                    }
                 }
-                else{
+
+                if (position == 2) {
+                    btn_signin_confirm.visibility = View.VISIBLE
+                } else {
                     btn_signin_confirm.visibility = View.GONE
                 }
             }
@@ -62,13 +86,16 @@ class SignInActivity : BaseActivity() {
         }
 
         btn_signin_confirm.setOnClickListener {
-            val userName = viewPagerAdapter.getView(0)?.findViewById<EditText>(R.id.edit_sigin1_name)?.text.emptyToNull()
+            val userName =
+                viewPagerAdapter.getView(0)?.findViewById<EditText>(R.id.edit_sigin1_name)?.text.emptyToNull()
             val totalSemester =
                 (viewPagerAdapter.getView(0)?.findViewById<Spinner>(R.id.spinner_sigin1_school)?.selectedItem as Int?)
             val currentSemester =
                 (viewPagerAdapter.getView(0)?.findViewById<Spinner>(R.id.spinner_sigin1_current_grade)?.selectedItem as Int?)
-            val totalGrade = viewPagerAdapter.getView(1)?.findViewById<EditText>(R.id.edit_sigin2_total_grade)?.text.emptyToNull()
-            val currentGrade = viewPagerAdapter.getView(2)?.findViewById<EditText>(R.id.edit_sigin3_my_grade)?.text.emptyToNull()
+            val totalGrade =
+                viewPagerAdapter.getView(1)?.findViewById<EditText>(R.id.edit_sigin2_total_grade)?.text.emptyToNull()
+            val currentGrade =
+                viewPagerAdapter.getView(2)?.findViewById<EditText>(R.id.edit_sigin3_my_grade)?.text.emptyToNull()
 
             if (userName != null && totalSemester != null && currentSemester != null && totalGrade != null && currentGrade != null) {
                 viewModel.setData(
@@ -84,8 +111,7 @@ class SignInActivity : BaseActivity() {
                         ScoreActivity::class.java
                     ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 )
-            }
-            else{
+            } else {
                 Toast.makeText(this@SignInActivity, "기본 폼을 모두 입력해주세요", Toast.LENGTH_LONG).show()
             }
         }

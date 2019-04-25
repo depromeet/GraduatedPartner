@@ -62,8 +62,18 @@
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
                 android:layout_marginTop="30dp"
-                android:background="#14b7ff"
+                android:background="@drawable/gradient_background"
                 app:layout_constraintTop_toBottomOf="@id/btn_score_input_grade">
+
+                <ImageView
+                    android:layout_width="250dp"
+                    android:layout_height="250dp"
+                    android:background="@drawable/yellowbluecircle"
+                    android:alpha="0.4"
+                    android:layout_marginStart="255dp"
+                    android:layout_marginBottom="80dp"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintLeft_toLeftOf="parent" />
 
                 <TextView
                     android:id="@+id/tv_score_graduate_progress_title"
