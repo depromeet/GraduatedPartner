@@ -13,7 +13,7 @@ class InputGradeActivity : BaseActivity() {
     private val viewModel: InputGradeViewModel by viewModel()
 
     private val binding by lazy{
-        DataBindingUtil.setContentView<ActivityInputGradeBinding>(this,R.layout.activity_input_grade)
+        DataBindingUtil.setContentView<ActivityInputGradeBinding>(this, R.layout.activity_input_grade)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -21,7 +21,11 @@ class InputGradeActivity : BaseActivity() {
         binding.vm = viewModel
         binding.lifecycleOwner = this
 
-        val viewPagerAdapter = InputGradeViewPagerAdapter(this@InputGradeActivity)
+        val viewPagerAdapter = InputGradeViewPagerAdapter(this@InputGradeActivity, supportFragmentManager)
         grade_viewpager.adapter = viewPagerAdapter
+        grade_viewpager.offscreenPageLimit = 8
+
+        semaster_tab.setViewPager(grade_viewpager)
+
     }
 }

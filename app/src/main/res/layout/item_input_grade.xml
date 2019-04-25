@@ -6,25 +6,27 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="wrap_content">
 
         <Spinner
-            android:id="@+id/spinner_subject"
+            android:id="@+id/spinner_type"
             android:layout_width="71dp"
             android:layout_height="40dp"
             android:layout_marginLeft="20dp"
+            android:padding="10dp"
+            android:dropDownWidth="match_parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
 
         />
 
         <EditText
-            android:id="@+id/edit_content"
+            android:id="@+id/edit_subject"
             android:layout_width="136dp"
             android:layout_height="40dp"
             android:layout_marginLeft="11dp"
             android:hint="말과 글"
-            app:layout_constraintStart_toEndOf="@id/spinner_subject"
+            app:layout_constraintStart_toEndOf="@id/spinner_type"
             app:layout_constraintTop_toTopOf="parent"
         />
 
@@ -33,13 +35,13 @@
             android:layout_width="47dp"
             android:layout_height="40dp"
             android:layout_marginLeft="10dp"
-            app:layout_constraintStart_toEndOf="@id/edit_content"
+            app:layout_constraintStart_toEndOf="@id/edit_subject"
             app:layout_constraintTop_toTopOf="parent"
 
         />
 
         <EditText
-            android:id="@+id/edit_grade"
+            android:id="@+id/edit_score"
             android:layout_width="38dp"
             android:layout_height="40dp"
             android:layout_marginLeft="7dp"
