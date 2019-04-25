@@ -23,8 +23,6 @@
         <activity
             android:name=".presentation.signin.SignInActivity"
             android:windowSoftInputMode="adjustResize"/>
-        <activity android:name=".presentation.inputgrade.InputGradeActivity">
-        </activity>
+        <activity android:name=".presentation.inputgrade.InputGradeActivity"/>
     </application>
-
 </manifest>

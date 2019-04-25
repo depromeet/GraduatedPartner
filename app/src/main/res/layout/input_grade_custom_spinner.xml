@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<TextView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:text="전공필수"
+    android:id="@+id/TextView01"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:minHeight="40dp"
+    android:textSize="12sp"
+    android:letterSpacing="-0.03"
+    android:lineSpacingExtra="1sp"
+    android:gravity="center_vertical"
+    android:padding = "2dp"/>
