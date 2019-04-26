@@ -3,11 +3,10 @@ package com.dmp.graduatedpartner.datasource.local
 import android.content.Context
 import com.dmp.graduatedpartner.Application
 import com.dmp.graduatedpartner.model.GradRequ
-import com.dmp.graduatedpartner.model.Grade
 import com.google.gson.Gson
 import io.reactivex.Single
 
-class GradRequDataSource{
+class GradRequDataSource {
     private val sharedPreference = Application.appContext?.getSharedPreferences(FILE_NAME, Context.MODE_PRIVATE)
     private val editor by lazy { sharedPreference?.edit() }
     private val gson = Gson()
@@ -20,7 +19,8 @@ class GradRequDataSource{
 
     fun get(key: String): Single<GradRequ> =
         Single.create<GradRequ> { emitter ->
-            emitter.onSuccess(sharedPreference?.getString(key, null)?.let { gson.fromJson(it, GradRequ::class.java)} ?: GradRequ(null, null))
+            emitter.onSuccess(sharedPreference?.getString(key, null)?.let { gson.fromJson(it, GradRequ::class.java) }
+                ?: GradRequ(null, null, false))
         }
 
     companion object {

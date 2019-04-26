@@ -8,7 +8,7 @@ import io.reactivex.Single
 
 class UserGradeDataSource {
     private val sharedPreference = Application.appContext?.getSharedPreferences(
-        GraduateDataSource.FILE_NAME,
+        FILE_NAME,
         Context.MODE_PRIVATE
     )
     private val editor by lazy { sharedPreference?.edit() }

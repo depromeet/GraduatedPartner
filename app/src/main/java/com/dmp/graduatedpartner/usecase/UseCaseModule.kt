@@ -7,5 +7,5 @@ val useCaseModule = module {
     factory { GetGradeUsecase(get()) }
     factory { SignInUsecase(get(), get()) }
     factory { EditGradeUsecase(get()) }
-    factory { GetUserGradeUsecase(get())}
+    factory { GetUserGradeUsecase(get()) }
 }
