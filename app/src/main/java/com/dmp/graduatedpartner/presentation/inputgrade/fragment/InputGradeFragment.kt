@@ -17,6 +17,9 @@ import com.dmp.graduatedpartner.presentation.inputgrade.adapter.InputGradeListAd
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 import kotlinx.android.synthetic.main.fragment_input_grade.*
+import androidx.core.view.ViewCompat.setNestedScrollingEnabled
+import androidx.core.view.get
+import androidx.recyclerview.widget.RecyclerView
 
 
 
@@ -25,6 +28,7 @@ class InputGradeFragment : Fragment(){
     private lateinit var adapter : InputGradeListAdapter
     var userGradeList = ArrayList<UserGrade>()
     var listFlag = 0
+    var isFirst = 0
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
         return inflater.inflate(R.layout.fragment_input_grade, container, false)
@@ -36,15 +40,20 @@ class InputGradeFragment : Fragment(){
         loadData()
 
         //init
-        if(listFlag == 0){
+        if(listFlag == 0 && isFirst == 0){
             listFlag = 1
+            isFirst = 1
+            userGradeList.add(UserGrade(0,null,0,4.5))
             userGradeList.add(UserGrade(0,null,0,4.5))
             userGradeList.add(UserGrade(0,null,0,4.5))
             userGradeList.add(UserGrade(0,null,0,4.5))
         }
 
         grade_recyclerview.apply {
-            layoutManager = LinearLayoutManager(activity)
+            layoutManager = LinearLayoutManager(activity, LinearLayoutManager.VERTICAL, false)
+            setHasFixedSize(false)
+            isNestedScrollingEnabled = false
+            grade_recyclerview.layoutManager = layoutManager
             adapter = InputGradeListAdapter(context, userGradeList)
             Log.d("@@@@firstSize", ""+ userGradeList.size)
         }
@@ -52,13 +61,14 @@ class InputGradeFragment : Fragment(){
         add_grade_btn.setOnClickListener{
             userGradeList.add(UserGrade(0,null,0,4.5))
             Log.d("@@@@laterSize", ""+ userGradeList.size)
+
+
             refreshFragment()
         }
-
     }
 
     //SharedPreference
-    fun saveData() {
+    fun saveData(userGradeList : ArrayList<UserGrade>) {
         var sharedPreferences = appContext?.getSharedPreferences("gradelist",MODE_PRIVATE)
         var editor : SharedPreferences.Editor = sharedPreferences!!.edit()
         var gson = Gson()
@@ -80,12 +90,10 @@ class InputGradeFragment : Fragment(){
         }
     }
 
-
     fun refreshFragment(){
         var frg: FragmentTransaction? = null
         frg = fragmentManager?.beginTransaction()
         frg?.detach(this)?.attach(this)?.commit()
-
     }
 
     companion object {
