@@ -17,9 +17,9 @@ import kotlinx.android.synthetic.main.item_input_grade.view.*
 class InputGradeListAdapter(val context : Context, val list : ArrayList<UserGrade>) : RecyclerView.Adapter<InputGradeListAdapter.GradeViewHolder>() {
 
     private val mTypeSpinnerAdapter
-            = ArrayAdapter.createFromResource(context,R.array.subject_type,android.R.layout.simple_spinner_item)
+            = ArrayAdapter.createFromResource(context,R.array.subject_type,R.layout.input_grade_custom_spinner)
     private val mGradeSpinnerAdpater
-            = ArrayAdapter.createFromResource(context,R.array.grade,android.R.layout.simple_spinner_item)
+            = ArrayAdapter.createFromResource(context,R.array.grade,R.layout.input_grade_custom_spinner)
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): GradeViewHolder {
         val inflater = LayoutInflater.from(parent.context)
@@ -38,7 +38,6 @@ class InputGradeListAdapter(val context : Context, val list : ArrayList<UserGrad
     }
 
     override fun getItemCount(): Int = list.size
-
 
     class GradeViewHolder(inflater: LayoutInflater, parent: ViewGroup) :
         RecyclerView.ViewHolder(inflater.inflate(R.layout.item_input_grade, parent, false)) {
@@ -60,10 +59,9 @@ class InputGradeListAdapter(val context : Context, val list : ArrayList<UserGrad
                 override fun onItemSelected(parent: AdapterView<*>?, view: View?, position: Int, id: Long) {
                     Log.d("@@@type", ""+ parent?.selectedItem.toString())
                     mType?.setSelection(position)
-
                 }
-
             }
+
             mGrade?.onItemSelectedListener = object : AdapterView.OnItemSelectedListener{
                 override fun onNothingSelected(parent: AdapterView<*>?) {}
 
@@ -71,7 +69,6 @@ class InputGradeListAdapter(val context : Context, val list : ArrayList<UserGrad
                     Log.d("@@@grade", ""+ parent?.selectedItem.toString())
                     mGrade?.setSelection(position)
                 }
-
             }
         }
 

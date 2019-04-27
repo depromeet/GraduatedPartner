@@ -18,13 +18,13 @@ class InputGradeViewPagerAdapter(private val context: Context, fm:FragmentManage
     override fun getItem(position: Int): Fragment? {
         when (position) {
             0 -> return InputGradeFragment()
-            1 -> return InputGradeFragment2()
-            2 -> return InputGradeFragment2()
-            3 -> return InputGradeFragment2()
-            4 -> return InputGradeFragment2()
-            5 -> return InputGradeFragment2()
-            6 -> return InputGradeFragment2()
-            7 -> return InputGradeFragment2()
+            1 -> return InputGradeFragment()
+            2 -> return InputGradeFragment()
+            3 -> return InputGradeFragment()
+            4 -> return InputGradeFragment()
+            5 -> return InputGradeFragment()
+            6 -> return InputGradeFragment()
+            7 -> return InputGradeFragment()
         }
         return null
     }
