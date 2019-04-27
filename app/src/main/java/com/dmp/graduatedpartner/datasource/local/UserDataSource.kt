@@ -4,7 +4,6 @@ import android.content.Context.MODE_PRIVATE
 import com.dmp.graduatedpartner.Application
 import com.dmp.graduatedpartner.model.User
 import com.google.gson.Gson
-import io.reactivex.Maybe
 import io.reactivex.Single
 
 class UserDataSource {

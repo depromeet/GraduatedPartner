@@ -37,6 +37,8 @@ class SignInActivity : BaseActivity() {
 
     private fun bindView() {
         val viewPagerAdapter = SignInViewPagerAdapter(this@SignInActivity)
+
+        //Indicator
         val indicator = ArrayList<View>()
         for (i in 0..2) {
             indicator.add(

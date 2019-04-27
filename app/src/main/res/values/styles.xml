@@ -4,4 +4,9 @@
         <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
         <item name="colorAccent">@color/colorAccent</item>
     </style>
+
+    <style name="EditTextStyle" parent="Widget.AppCompat.EditText">
+        <item name="android:colorControlNormal">#fcde30</item>
+        <item name="android:colorControlActivated">#fcde30</item>
+    </style>
 </resources>

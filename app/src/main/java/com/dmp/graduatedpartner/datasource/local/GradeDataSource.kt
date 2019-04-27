@@ -4,7 +4,6 @@ import android.content.Context.MODE_PRIVATE
 import com.dmp.graduatedpartner.Application.Companion.appContext
 import com.dmp.graduatedpartner.model.Grade
 import com.google.gson.Gson
-import io.reactivex.Maybe
 import io.reactivex.Single
 
 class GradeDataSource {
