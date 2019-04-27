@@ -11,8 +11,6 @@ import android.view.ViewGroup
 import android.widget.*
 import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.widget.ThemedSpinnerAdapter
-import androidx.core.view.marginBottom
-import androidx.core.view.size
 import androidx.viewpager.widget.PagerAdapter
 import com.dmp.graduatedpartner.R
 import kotlinx.android.synthetic.main.item_signin1.view.*
@@ -59,7 +57,7 @@ class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
             }
         }
 
-    //fixme : findviewById가 너무 많음
+    //fixme : findviewById를 너무 남발함...
     private fun addGraduateView(container: ViewGroup): View {
         graduateViews.add(
             LayoutInflater.from(context).inflate(

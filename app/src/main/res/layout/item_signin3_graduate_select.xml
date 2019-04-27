@@ -5,7 +5,7 @@
     android:layout_height="wrap_content"
     android:padding="3dp">
 
-    <RadioButton
+    <CheckBox
         android:id="@+id/radio_signin3_select"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
