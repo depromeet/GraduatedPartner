@@ -2,7 +2,6 @@ package com.dmp.graduatedpartner.datasource.local
 
 import android.content.Context
 import com.dmp.graduatedpartner.Application
-import com.dmp.graduatedpartner.model.GradRequ
 import com.dmp.graduatedpartner.model.GraduateList
 import com.google.gson.Gson
 import io.reactivex.Single

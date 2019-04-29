@@ -2,7 +2,6 @@ package com.dmp.graduatedpartner.presentation.signin
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
@@ -38,7 +37,6 @@ class SignInActivity : BaseActivity() {
     private fun bindView() {
         val viewPagerAdapter = SignInViewPagerAdapter(this@SignInActivity)
 
-        //Indicator
         val indicator = ArrayList<View>()
         for (i in 0..2) {
             indicator.add(
@@ -49,7 +47,7 @@ class SignInActivity : BaseActivity() {
                 )
             )
             linear_signin_indicators.addView(indicator[i])
-            if(i == 0){
+            if (i == 0) {
                 indicator[i].findViewById<ImageView>(R.id.indicator).setImageResource(R.drawable.yellowcircle)
             }
         }
@@ -98,6 +96,8 @@ class SignInActivity : BaseActivity() {
                 viewPagerAdapter.getView(1)?.findViewById<EditText>(R.id.edit_sigin2_total_grade)?.text.emptyToNull()
             val currentGrade =
                 viewPagerAdapter.getView(2)?.findViewById<EditText>(R.id.edit_sigin3_my_grade)?.text.emptyToNull()
+            val graduateList =
+                viewPagerAdapter.getGraduateList()
 
             if (userName != null && totalSemester != null && currentSemester != null && totalGrade != null && currentGrade != null) {
                 viewModel.setData(
@@ -105,8 +105,10 @@ class SignInActivity : BaseActivity() {
                     totalSemester,
                     currentSemester,
                     totalGrade.toString().toInt(),
-                    currentGrade.toString().toInt()
+                    currentGrade.toString().toInt(),
+                    graduateList
                 )
+                
                 startActivity(
                     Intent(
                         this@SignInActivity,

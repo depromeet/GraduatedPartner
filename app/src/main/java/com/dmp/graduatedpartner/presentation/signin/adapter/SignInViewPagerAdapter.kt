@@ -1,6 +1,5 @@
 package com.dmp.graduatedpartner.presentation.signin.adapter
 
-import android.annotation.SuppressLint
 import android.content.Context
 import android.content.res.Resources
 import android.text.Editable
@@ -13,6 +12,7 @@ import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.widget.ThemedSpinnerAdapter
 import androidx.viewpager.widget.PagerAdapter
 import com.dmp.graduatedpartner.R
+import com.dmp.graduatedpartner.model.GraduateList
 import kotlinx.android.synthetic.main.item_signin1.view.*
 import kotlinx.android.synthetic.main.item_signin2.view.*
 
@@ -22,6 +22,31 @@ class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
     private val graduateRadioViews = ArrayList<View>()
 
     fun getView(position: Int) = views[position]
+
+    fun getGraduateList(): GraduateList {
+        val graduateList = ArrayList<GraduateList.Graduate>()
+        for (view in graduateRadioViews) {
+            GraduateList.Graduate(
+                when (view.findViewById<TextView>(R.id.edittext_signin3_type).text.toString()) {
+                    "교양필수" -> {
+                        GraduateList.Graduate.Type.CULTURE
+                    }
+                    "자격증" -> {
+                        GraduateList.Graduate.Type.CERTIFICATE
+                    }
+                    "어학점수" -> {
+                        GraduateList.Graduate.Type.LANGUAGE
+                    }
+                    else -> {
+                        GraduateList.Graduate.Type.ETC
+                    }
+                },
+                view.findViewById<TextView>(R.id.edittext_signin3_content).text.toString(),
+                view.findViewById<CheckBox>(R.id.radio_signin3_select).isChecked
+            )
+        }
+        return GraduateList(graduateList)
+    }
 
     override fun isViewFromObject(view: View, viewItem: Any): Boolean = (view == viewItem)
 
@@ -57,7 +82,6 @@ class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
             }
         }
 
-    //fixme : findviewById를 너무 남발함...
     private fun addGraduateView(container: ViewGroup): View {
         graduateViews.add(
             LayoutInflater.from(context).inflate(
@@ -110,7 +134,6 @@ class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
         return graduateViews.last()
     }
 
-    @SuppressLint("ClickableViewAccessibility")
     private fun addGraduateRadioView(container: ViewGroup): View {
         graduateRadioViews.add(
             LayoutInflater.from(context).inflate(
