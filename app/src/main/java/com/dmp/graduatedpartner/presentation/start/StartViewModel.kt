@@ -2,10 +2,10 @@ package com.dmp.graduatedpartner.presentation.start
 
 import com.dmp.graduatedpartner.const.USER_KEY
 import com.dmp.graduatedpartner.presentation.base.BaseViewModel
-import com.dmp.graduatedpartner.usecase.GetUserUsecase
+import com.dmp.graduatedpartner.usecase.GetUser
 
 class StartViewModel(
-    private val getUserUsecase: GetUserUsecase
+    private val getUser: GetUser
 ) : BaseViewModel() {
     var existedUser = false
 
@@ -14,7 +14,7 @@ class StartViewModel(
     }
 
     private fun updateUserExist() =
-        getUserUsecase(USER_KEY)
+        getUser(USER_KEY)
             .subscribeIgnoreError {
                 it.name?.let {
                     existedUser = true

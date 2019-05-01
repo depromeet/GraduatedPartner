@@ -6,11 +6,11 @@ import com.dmp.graduatedpartner.const.ETC_GRADE_KEY
 import com.dmp.graduatedpartner.const.MAJOR_GRADE_KEY
 import com.dmp.graduatedpartner.model.Grade
 import com.dmp.graduatedpartner.presentation.base.BaseViewModel
-import com.dmp.graduatedpartner.usecase.GetGradeUsecase
-import com.dmp.graduatedpartner.usecase.EditGradeUsecase
+import com.dmp.graduatedpartner.usecase.GetGrade
+import com.dmp.graduatedpartner.usecase.EditGrade
 
 class EditGradeViewModel(
-    private val getGradeusecase: GetGradeUsecase, private val editGradeUsecase: EditGradeUsecase
+    private val getGradeusecase: GetGrade, private val editGradeUsecase: EditGrade
 ) : BaseViewModel() {
 
     val majorGrade = MutableLiveData<Grade>()

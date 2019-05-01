@@ -5,11 +5,11 @@ import androidx.lifecycle.MutableLiveData
 import com.dmp.graduatedpartner.const.*
 import com.dmp.graduatedpartner.model.Grade
 import com.dmp.graduatedpartner.presentation.base.BaseViewModel
-import com.dmp.graduatedpartner.usecase.GetGradeUsecase
-import com.dmp.graduatedpartner.usecase.GetUserUsecase
+import com.dmp.graduatedpartner.usecase.GetGrade
+import com.dmp.graduatedpartner.usecase.GetGraduateList
+import com.dmp.graduatedpartner.usecase.GetUser
 
-class ScoreViewModel(private val getUserUsecase: GetUserUsecase, private val getGradeUsecase: GetGradeUsecase) :
-    BaseViewModel() {
+class ScoreViewModel(private val getUser: GetUser, private val getGrade: GetGrade, private val getGraduateList: GetGraduateList) : BaseViewModel() {
     val userName = MutableLiveData<String>()
 
     val totalGrade = MutableLiveData<Grade>()
@@ -24,6 +24,8 @@ class ScoreViewModel(private val getUserUsecase: GetUserUsecase, private val get
     val etcGrade = MutableLiveData<Grade>()
     val etcPercent = MutableLiveData<Int>()
 
+    fun getSingleGraduateList() = getGraduateList()
+
     fun getUserInfoTwice() {
         getUserInfo()
         Handler().postDelayed(
@@ -35,10 +37,10 @@ class ScoreViewModel(private val getUserUsecase: GetUserUsecase, private val get
     }
 
     private fun getUserInfo() =
-        getUserUsecase(USER_KEY).subscribeIgnoreError { user ->
+        getUser(USER_KEY).subscribeIgnoreError { user ->
             userName.postValue(user.name)
 
-            getGradeUsecase(TOTAL_GRADE_KEY).subscribeIgnoreError { grade ->
+            getGrade(TOTAL_GRADE_KEY).subscribeIgnoreError { grade ->
                 if (grade.total != null && grade.current != null) {
                     totalGrade.postValue(grade)
                     totalPercent.postValue(
@@ -51,7 +53,7 @@ class ScoreViewModel(private val getUserUsecase: GetUserUsecase, private val get
                 }
             }.bind()
 
-            getGradeUsecase(MAJOR_GRADE_KEY).subscribeIgnoreError { grade ->
+            getGrade(MAJOR_GRADE_KEY).subscribeIgnoreError { grade ->
                 if (grade.total != null && grade.current != null) {
                     majorGrade.postValue(grade)
                     majorPercent.postValue(
@@ -64,7 +66,7 @@ class ScoreViewModel(private val getUserUsecase: GetUserUsecase, private val get
                 }
             }.bind()
 
-            getGradeUsecase(CULTURE_GRADE_KEY).subscribeIgnoreError { grade ->
+            getGrade(CULTURE_GRADE_KEY).subscribeIgnoreError { grade ->
                 if (grade.total != null && grade.current != null) {
                     cultureGrade.postValue(grade)
                     culturePercent.postValue(
@@ -77,7 +79,7 @@ class ScoreViewModel(private val getUserUsecase: GetUserUsecase, private val get
                 }
             }.bind()
 
-            getGradeUsecase(ETC_GRADE_KEY).subscribeIgnoreError { grade ->
+            getGrade(ETC_GRADE_KEY).subscribeIgnoreError { grade ->
                 if (grade.total != null && grade.current != null) {
                     etcGrade.postValue(grade)
                     etcPercent.postValue(

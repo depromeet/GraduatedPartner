@@ -6,6 +6,6 @@ import org.koin.dsl.module
 val dataSourceModule = module {
     single { GradeDataSource() }
     single { UserDataSource() }
-    single { UserGradeDataSource() }
+    single { CourseDataSource() }
     single { GraduateListDataSource() }
 }

@@ -12,9 +12,9 @@ import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.widget.ThemedSpinnerAdapter
 import androidx.viewpager.widget.PagerAdapter
 import com.dmp.graduatedpartner.R
-import com.dmp.graduatedpartner.model.GraduateList
-import kotlinx.android.synthetic.main.item_signin1.view.*
-import kotlinx.android.synthetic.main.item_signin2.view.*
+import com.dmp.graduatedpartner.model.Graduate
+import kotlinx.android.synthetic.main.item_signin_form1.view.*
+import kotlinx.android.synthetic.main.item_signin_form2.view.*
 
 class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
     private val views = mutableMapOf<Int, View>()
@@ -23,29 +23,31 @@ class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
 
     fun getView(position: Int) = views[position]
 
-    fun getGraduateList(): GraduateList {
-        val graduateList = ArrayList<GraduateList.Graduate>()
+    fun getGraduateList(): List<Graduate> {
+        val graduateList = ArrayList<Graduate>()
         for (view in graduateRadioViews) {
-            GraduateList.Graduate(
-                when (view.findViewById<TextView>(R.id.edittext_signin3_type).text.toString()) {
-                    "교양필수" -> {
-                        GraduateList.Graduate.Type.CULTURE
-                    }
-                    "자격증" -> {
-                        GraduateList.Graduate.Type.CERTIFICATE
-                    }
-                    "어학점수" -> {
-                        GraduateList.Graduate.Type.LANGUAGE
-                    }
-                    else -> {
-                        GraduateList.Graduate.Type.ETC
-                    }
-                },
-                view.findViewById<TextView>(R.id.edittext_signin3_content).text.toString(),
-                view.findViewById<CheckBox>(R.id.radio_signin3_select).isChecked
+            graduateList.add(
+                Graduate(
+                    when (view.findViewById<TextView>(R.id.edittext_signin3_type).text.toString()) {
+                        "교양필수" -> {
+                            Graduate.Type.CULTURE
+                        }
+                        "자격증" -> {
+                            Graduate.Type.CERTIFICATE
+                        }
+                        "어학점수" -> {
+                            Graduate.Type.LANGUAGE
+                        }
+                        else -> {
+                            Graduate.Type.ETC
+                        }
+                    },
+                    view.findViewById<TextView>(R.id.edittext_signin3_content).text.toString(),
+                    view.findViewById<CheckBox>(R.id.radio_signin3_select).isChecked
+                )
             )
         }
-        return GraduateList(graduateList)
+        return graduateList
     }
 
     override fun isViewFromObject(view: View, viewItem: Any): Boolean = (view == viewItem)
@@ -75,17 +77,13 @@ class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
                 1 -> {
                     linear_signin2_require_list.addView(addGraduateView(container))
                 }
-
-                2 -> {
-
-                }
             }
         }
 
     private fun addGraduateView(container: ViewGroup): View {
         graduateViews.add(
             LayoutInflater.from(context).inflate(
-                R.layout.item_signin2_graduate_input,
+                R.layout.item_signin_graduate_input_form,
                 container,
                 false
             ).let { parentView ->
@@ -137,7 +135,7 @@ class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
     private fun addGraduateRadioView(container: ViewGroup): View {
         graduateRadioViews.add(
             LayoutInflater.from(context).inflate(
-                R.layout.item_signin3_graduate_select,
+                R.layout.item_signin_graduate_select_form,
                 container,
                 false
             ).apply {
@@ -171,7 +169,7 @@ class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
 
         override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
             val view: TextView = (convertView ?: LayoutInflater.from(context).inflate(
-                R.layout.item_spinner,
+                R.layout.item_signin_type,
                 parent,
                 false
             )) as TextView
@@ -189,9 +187,9 @@ class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
 
     companion object {
         val signInGuideList = listOf(
-            R.layout.item_signin1,
-            R.layout.item_signin2,
-            R.layout.item_signin3
+            R.layout.item_signin_form1,
+            R.layout.item_signin_form2,
+            R.layout.item_signin_form3
         )
     }
 }

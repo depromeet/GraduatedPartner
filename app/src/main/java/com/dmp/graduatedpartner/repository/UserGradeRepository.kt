@@ -1,9 +1,9 @@
 package com.dmp.graduatedpartner.repository
 
-import com.dmp.graduatedpartner.datasource.local.UserGradeDataSource
-import com.dmp.graduatedpartner.model.UserGrade
+import com.dmp.graduatedpartner.datasource.local.CourseDataSource
+import com.dmp.graduatedpartner.model.Course
 
-class UserGradeRepository(private val userGradeDataSource: UserGradeDataSource) {
-    fun get(key: String) = userGradeDataSource.get(key)
-    fun put(key: String, content: UserGrade) = userGradeDataSource.put(key, content)
+class UserGradeRepository(private val courseDataSource: CourseDataSource) {
+    fun get(key: String) = courseDataSource.get(key)
+    fun put(key: String, content: Course) = courseDataSource.put(key, content)
 }

@@ -12,7 +12,6 @@ import com.dmp.graduatedpartner.R
 import com.dmp.graduatedpartner.databinding.ActivityScoreBinding
 import com.dmp.graduatedpartner.presentation.base.BaseActivity
 import com.dmp.graduatedpartner.presentation.editgrade.EditGradeActivity
-import com.dmp.graduatedpartner.presentation.start.StartActivity
 import kotlinx.android.synthetic.main.activity_score.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -27,7 +26,10 @@ class ScoreActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
         binding.lifecycleOwner = this
+        bindView()
+    }
 
+    private fun bindView() {
         btn_score_edit1.setOnClickListener {
             startActivityForResult(
                 Intent(
@@ -48,6 +50,12 @@ class ScoreActivity : BaseActivity() {
         guideDialog.window?.attributes?.width = WindowManager.LayoutParams.MATCH_PARENT
         guideDialog.window?.attributes?.height = WindowManager.LayoutParams.MATCH_PARENT
         guideDialog.show()
+
+        viewModel.getSingleGraduateList().subscribeIgnoreError { graduateList ->
+            for(graduate in graduateList){
+
+            }
+        }.bind()
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {

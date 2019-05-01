@@ -7,7 +7,7 @@ import com.dmp.graduatedpartner.const.TOTAL_GRADE_KEY
 import com.dmp.graduatedpartner.model.Grade
 import com.dmp.graduatedpartner.repository.GradeRepository
 
-class EditGradeUsecase(private val gradeRepository: GradeRepository) {
+class EditGrade(private val gradeRepository: GradeRepository) {
     operator fun invoke(
         majorCurrent: Int, majorTotal: Int,
         cultureCurrent: Int, cultureTotal: Int,

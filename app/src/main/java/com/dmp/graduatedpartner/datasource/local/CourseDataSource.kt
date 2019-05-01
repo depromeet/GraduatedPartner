@@ -2,11 +2,11 @@ package com.dmp.graduatedpartner.datasource.local
 
 import android.content.Context
 import com.dmp.graduatedpartner.Application
-import com.dmp.graduatedpartner.model.UserGrade
+import com.dmp.graduatedpartner.model.Course
 import com.google.gson.Gson
 import io.reactivex.Single
 
-class UserGradeDataSource {
+class CourseDataSource {
     private val sharedPreference = Application.appContext?.getSharedPreferences(
         FILE_NAME,
         Context.MODE_PRIVATE
@@ -14,16 +14,16 @@ class UserGradeDataSource {
     private val editor by lazy { sharedPreference?.edit() }
     private val gson = Gson()
 
-    fun put(key: String, content: UserGrade) =
+    fun put(key: String, content: Course) =
         gson.toJson(content)?.let {
             editor?.putString(key, it)
             editor?.apply()
         }
 
-    fun get(key: String) : Single<UserGrade> =
-            Single.create<UserGrade> { emitter ->
+    fun get(key: String) : Single<Course> =
+            Single.create<Course> { emitter ->
                 emitter.onSuccess(sharedPreference?.getString(key, null)?.let
-                { gson.fromJson(it, UserGrade::class.java)} ?: UserGrade(null, null, null, null))
+                { gson.fromJson(it, Course::class.java)} ?: Course(null, null, null, null))
             }
 
     companion object {

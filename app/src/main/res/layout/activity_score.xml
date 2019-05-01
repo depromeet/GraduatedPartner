@@ -24,7 +24,7 @@
                 android:gravity="center"
                 android:text="새학기 시작하기"
                 android:textColor="@android:color/white"
-                android:background="@drawable/blue_rectangle_edgeround"
+                android:background="@drawable/rect_edge_round_blue"
                 android:textStyle="bold"
                 android:textSize="12sp"
                 android:layout_marginTop="25dp"
@@ -62,13 +62,13 @@
                 android:layout_width="match_parent"
                 android:layout_height="260dp"
                 android:layout_marginTop="30dp"
-                android:background="@drawable/gradient_background"
+                android:background="@drawable/bg_gradient_blue_yellow"
                 app:layout_constraintTop_toBottomOf="@id/btn_score_input_grade">
 
                 <ImageView
                     android:layout_width="250dp"
                     android:layout_height="250dp"
-                    android:background="@drawable/yellowbluecircle"
+                    android:background="@drawable/oval_gradient_yellow_blue"
                     android:alpha="0.4"
                     android:layout_marginStart="255dp"
                     android:layout_marginBottom="80dp"
@@ -92,8 +92,8 @@
                     android:layout_width="150dp"
                     android:layout_height="0dp"
                     android:indeterminate="false"
-                    android:progressDrawable="@drawable/circular_progress_bar_thick"
-                    android:background="@drawable/circle_shape_thick"
+                    android:progressDrawable="@drawable/pgbar_ring_white_yellow_thick"
+                    android:background="@drawable/ring_gray_thick"
                     style="?android:attr/progressBarStyleHorizontal"
                     app:layout_constraintTop_toBottomOf="@id/tv_score_graduate_progress_title"
                     app:layout_constraintBottom_toBottomOf="parent"
@@ -126,12 +126,10 @@
                     app:layout_constraintTop_toTopOf="@id/tv_score_graduate_progress_title"
                     app:layout_constraintLeft_toRightOf="@id/pg_score_total_title"/>
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:textColor="#ffffff"
-                    android:text="현재 구현되지\n않은 기능입니다."
-                    android:textSize="20sp"
                     android:layout_marginTop="30dp"
                     app:layout_constraintTop_toBottomOf="@id/tv_score_graduate_detail_title"
                     app:layout_constraintStart_toStartOf="@id/tv_score_graduate_detail_title"
@@ -194,7 +192,7 @@
                         android:paddingEnd="10dp"
                         android:textColor="#ffffff"
                         android:layout_marginStart="10dp"
-                        android:background="@drawable/blue_rectangle_edgeround"
+                        android:background="@drawable/rect_edge_round_blue"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toRightOf="@id/tv_score_total_grade_title"
                         tools:text="56% 달성"/>
@@ -214,8 +212,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:indeterminate="false"
-                        android:progressDrawable="@drawable/circular_progress_bar"
-                        android:background="@drawable/circle_shape"
+                        android:progressDrawable="@drawable/pgbar_ring_yellow_blue_slim"
+                        android:background="@drawable/ring_gray_slim"
                         style="?android:attr/progressBarStyleHorizontal"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -261,7 +259,7 @@
                         android:paddingEnd="10dp"
                         android:textColor="#ffffff"
                         android:layout_marginStart="10dp"
-                        android:background="@drawable/blue_rectangle_edgeround"
+                        android:background="@drawable/rect_edge_round_blue"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toRightOf="@id/tv_score_major_grade_title"/>
 
@@ -280,8 +278,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:indeterminate="false"
-                        android:progressDrawable="@drawable/circular_progress_bar"
-                        android:background="@drawable/circle_shape"
+                        android:progressDrawable="@drawable/pgbar_ring_yellow_blue_slim"
+                        android:background="@drawable/ring_gray_slim"
                         style="?android:attr/progressBarStyleHorizontal"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -327,7 +325,7 @@
                         android:paddingEnd="10dp"
                         android:textColor="#ffffff"
                         android:layout_marginStart="10dp"
-                        android:background="@drawable/blue_rectangle_edgeround"
+                        android:background="@drawable/rect_edge_round_blue"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toRightOf="@id/tv_score_culture_grade_title"/>
 
@@ -346,8 +344,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:indeterminate="false"
-                        android:progressDrawable="@drawable/circular_progress_bar"
-                        android:background="@drawable/circle_shape"
+                        android:progressDrawable="@drawable/pgbar_ring_yellow_blue_slim"
+                        android:background="@drawable/ring_gray_slim"
                         style="?android:attr/progressBarStyleHorizontal"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -393,7 +391,7 @@
                         android:paddingEnd="10dp"
                         android:textColor="#ffffff"
                         android:layout_marginStart="10dp"
-                        android:background="@drawable/blue_rectangle_edgeround"
+                        android:background="@drawable/rect_edge_round_blue"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintLeft_toRightOf="@id/tv_score_etc_title"/>
 
@@ -412,8 +410,8 @@
                         android:layout_width="wrap_content"
                         android:layout_height="0dp"
                         android:indeterminate="false"
-                        android:progressDrawable="@drawable/circular_progress_bar"
-                        android:background="@drawable/circle_shape"
+                        android:progressDrawable="@drawable/pgbar_ring_yellow_blue_slim"
+                        android:background="@drawable/ring_gray_slim"
                         style="?android:attr/progressBarStyleHorizontal"
                         app:layout_constraintTop_toTopOf="parent"
                         app:layout_constraintBottom_toBottomOf="parent"
@@ -462,7 +460,6 @@
                 app:layout_constraintBottom_toBottomOf="@id/text_score_subtitle2"
                 app:layout_constraintRight_toRightOf="parent"/>
 
-            <!--fixme : 요기는 그래프 자리-->
             <com.github.mikephil.charting.charts.LineChart
                 android:id="@+id/view_graph"
                 android:layout_width="match_parent"

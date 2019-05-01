@@ -21,7 +21,7 @@ class CollegeTypeAdapter(private val context: Context) : BaseAdapter(), ThemedSp
 
     override fun getView(position: Int, convertView: View?, parent: ViewGroup?): View {
         val view: TextView = (convertView ?: LayoutInflater.from(context).inflate(
-            R.layout.item_spinner,
+            R.layout.item_signin_type,
             parent,
             false
         )) as TextView

@@ -4,5 +4,5 @@
     android:shape="oval">
     <gradient
         android:startColor="#fcde30"
-        android:endColor="#ff14b7ff"/>
+        android:endColor="#14b7ff"/>
 </shape>

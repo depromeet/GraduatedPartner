@@ -11,6 +11,7 @@ import com.dmp.graduatedpartner.presentation.base.BaseActivity
 import com.dmp.graduatedpartner.databinding.ActivityStartBinding
 import com.dmp.graduatedpartner.presentation.score.ScoreActivity
 import com.dmp.graduatedpartner.presentation.signin.SignInActivity
+import kotlinx.android.synthetic.main.activity_start.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
 class StartActivity : BaseActivity() {
@@ -24,18 +25,21 @@ class StartActivity : BaseActivity() {
         super.onCreate(savedInstanceState)
         binding.vm = viewModel
         binding.lifecycleOwner = this
+        bindView()
     }
 
-    fun onClickStartButton(view: View) {
-        startActivity(
-            Intent(
-                this@StartActivity,
-                if (viewModel.existedUser) {
-                    ScoreActivity::class.java
-                } else {
-                    SignInActivity::class.java
-                }
-            ).addFlags(FLAG_ACTIVITY_CLEAR_TASK or FLAG_ACTIVITY_NEW_TASK)
-        )
+    private fun bindView() {
+        text_start_startButton.setOnClickListener {
+            startActivity(
+                Intent(
+                    this@StartActivity,
+                    if (viewModel.existedUser) {
+                        ScoreActivity::class.java
+                    } else {
+                        SignInActivity::class.java
+                    }
+                ).addFlags(FLAG_ACTIVITY_CLEAR_TASK or FLAG_ACTIVITY_NEW_TASK)
+            )
+        }
     }
 }

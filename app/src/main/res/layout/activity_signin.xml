@@ -20,7 +20,6 @@
             android:text="←"
             android:layout_marginStart="7dp"
             android:layout_marginTop="17dp"
-            android:onClick="onPressBackButton"
             app:layout_constraintTop_toTopOf="parent"
             app:layout_constraintLeft_toLeftOf="parent"/>
 
@@ -46,7 +45,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:gravity="center"
-            android:background="@drawable/yellowcircle"
+            android:background="@drawable/oval_yellow"
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="→"
@@ -60,7 +59,7 @@
             android:layout_width="60dp"
             android:layout_height="60dp"
             android:gravity="center"
-            android:background="@drawable/bluecircle"
+            android:background="@drawable/oval_blue"
             android:textSize="20sp"
             android:textStyle="bold"
             android:text="⎷"

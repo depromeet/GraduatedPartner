@@ -48,7 +48,7 @@ class SignInActivity : BaseActivity() {
             )
             linear_signin_indicators.addView(indicator[i])
             if (i == 0) {
-                indicator[i].findViewById<ImageView>(R.id.indicator).setImageResource(R.drawable.yellowcircle)
+                indicator[i].findViewById<ImageView>(R.id.indicator).setImageResource(R.drawable.oval_yellow)
             }
         }
 
@@ -67,9 +67,9 @@ class SignInActivity : BaseActivity() {
             override fun onPageSelected(position: Int) {
                 for (i in 0..2) {
                     if (position == i) {
-                        indicator[i].findViewById<ImageView>(R.id.indicator).setImageResource(R.drawable.yellowcircle)
+                        indicator[i].findViewById<ImageView>(R.id.indicator).setImageResource(R.drawable.oval_yellow)
                     } else {
-                        indicator[i].findViewById<ImageView>(R.id.indicator).setImageResource(R.drawable.graycircle)
+                        indicator[i].findViewById<ImageView>(R.id.indicator).setImageResource(R.drawable.oval_gray)
                     }
                 }
 
@@ -108,7 +108,7 @@ class SignInActivity : BaseActivity() {
                     currentGrade.toString().toInt(),
                     graduateList
                 )
-                
+
                 startActivity(
                     Intent(
                         this@SignInActivity,
@@ -119,13 +119,13 @@ class SignInActivity : BaseActivity() {
                 Toast.makeText(this@SignInActivity, "기본 폼을 모두 입력해주세요", Toast.LENGTH_LONG).show()
             }
         }
-    }
 
-    fun onPressBackButton(view: View) {
-        val nextIntent = Intent(
-            this@SignInActivity,
-            StartActivity::class.java
-        ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
-        startActivity(nextIntent)
+        text_signin_backbutton.setOnClickListener {
+            val nextIntent = Intent(
+                this@SignInActivity,
+                StartActivity::class.java
+            ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+            startActivity(nextIntent)
+        }
     }
 }

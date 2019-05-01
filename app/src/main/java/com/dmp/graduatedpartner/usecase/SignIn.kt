@@ -2,7 +2,7 @@ package com.dmp.graduatedpartner.usecase
 
 import com.dmp.graduatedpartner.const.*
 import com.dmp.graduatedpartner.model.Grade
-import com.dmp.graduatedpartner.model.GraduateList
+import com.dmp.graduatedpartner.model.Graduate
 import com.dmp.graduatedpartner.model.User
 import com.dmp.graduatedpartner.repository.GradeRepository
 import com.dmp.graduatedpartner.repository.GraduateListRepository
@@ -19,7 +19,7 @@ class SignIn(
         totalSemester: Int,
         currentGrade: Int,
         totalGrade: Int,
-        graduateList: GraduateList
+        graduateList: List<Graduate>
     ) {
         userRepository.put(USER_KEY, User(userName, currentSemester, totalSemester))
         gradeRepository.put(TOTAL_GRADE_KEY, Grade(currentGrade, totalGrade))
