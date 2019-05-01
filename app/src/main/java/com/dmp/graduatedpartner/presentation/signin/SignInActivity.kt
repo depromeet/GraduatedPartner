@@ -120,7 +120,7 @@ class SignInActivity : BaseActivity() {
             }
         }
 
-        text_signin_backbutton.setOnClickListener {
+        toolbar_signin.setNavigationOnClickListener {
             val nextIntent = Intent(
                 this@SignInActivity,
                 StartActivity::class.java

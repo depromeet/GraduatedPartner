@@ -1,6 +1,6 @@
 package com.dmp.graduatedpartner.model
 
-data class Graduate(val type: Type?, val title: String?, val isComplete: Boolean = false) {
+data class Graduate(val type: Type? = null, val title: String? = null, val isComplete: Boolean = false) {
     enum class Type {
         CULTURE, CERTIFICATE, LANGUAGE, ETC
     }

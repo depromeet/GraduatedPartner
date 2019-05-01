@@ -8,7 +8,7 @@
         <import type="android.view.View"/>
         <variable
             name="vm"
-            type="com.dmp.graduatedpartner.presentation.editgrade.EditGradeViewModel"/>
+            type="com.dmp.graduatedpartner.presentation.updategrade.UpdateGradeViewModel"/>
     </data>
 
     <androidx.constraintlayout.widget.ConstraintLayout

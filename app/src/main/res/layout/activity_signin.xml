@@ -12,16 +12,12 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <TextView
-            android:id="@+id/text_signin_backbutton"
-            android:layout_width="wrap_content"
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar_signin"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textSize="30sp"
-            android:text="←"
-            android:layout_marginStart="7dp"
-            android:layout_marginTop="17dp"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:navigationIcon="?homeAsUpIndicator"/>
 
         <LinearLayout
             android:id="@+id/linear_signin_indicators"
@@ -30,14 +26,14 @@
             android:orientation="horizontal"
             android:layout_marginTop="30dp"
             android:layout_marginEnd="20dp"
-            app:layout_constraintTop_toTopOf="@id/viewpager_signin"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_signin"
             app:layout_constraintRight_toRightOf="parent"/>
 
         <androidx.viewpager.widget.ViewPager
             android:id="@+id/viewpager_signin"
             android:layout_width="match_parent"
             android:layout_height="0dp"
-            app:layout_constraintTop_toBottomOf="@id/text_signin_backbutton"
+            app:layout_constraintTop_toBottomOf="@id/toolbar_signin"
             app:layout_constraintBottom_toBottomOf="parent"/>
 
         <TextView

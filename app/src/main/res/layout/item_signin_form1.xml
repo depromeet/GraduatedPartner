@@ -46,8 +46,7 @@
             app:layout_constraintTop_toTopOf="@id/view_signin1_mark1"
             app:layout_constraintBottom_toBottomOf="@id/view_signin1_mark1"
             app:layout_constraintLeft_toRightOf="@id/view_signin1_mark1"
-            android:layout_marginStart="5dp"
-        />
+            android:layout_marginStart="5dp"/>
 
         <EditText
             android:id="@+id/edit_sigin1_name"
@@ -60,8 +59,7 @@
             android:focusable="true"
             android:focusableInTouchMode="true"
             app:layout_constraintTop_toBottomOf="@id/view_signin1_mark1"
-            app:layout_constraintLeft_toRightOf="@id/view_signin1_mark1"
-        />
+            app:layout_constraintLeft_toRightOf="@id/view_signin1_mark1"/>
 
         <View
             android:id="@+id/view_signin1_mark2"

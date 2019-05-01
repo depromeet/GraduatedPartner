@@ -1,4 +1,4 @@
-package com.dmp.graduatedpartner.presentation.editgrade
+package com.dmp.graduatedpartner.presentation.updategrade
 
 import androidx.lifecycle.MutableLiveData
 import com.dmp.graduatedpartner.const.CULTURE_GRADE_KEY
@@ -7,10 +7,10 @@ import com.dmp.graduatedpartner.const.MAJOR_GRADE_KEY
 import com.dmp.graduatedpartner.model.Grade
 import com.dmp.graduatedpartner.presentation.base.BaseViewModel
 import com.dmp.graduatedpartner.usecase.GetGrade
-import com.dmp.graduatedpartner.usecase.EditGrade
+import com.dmp.graduatedpartner.usecase.UpdateGrade
 
-class EditGradeViewModel(
-    private val getGradeusecase: GetGrade, private val editGradeUsecase: EditGrade
+class UpdateGradeViewModel(
+    private val getGradeusecase: GetGrade, private val updateGradeUsecase: UpdateGrade
 ) : BaseViewModel() {
 
     val majorGrade = MutableLiveData<Grade>()
@@ -39,6 +39,6 @@ class EditGradeViewModel(
         majorCurrent: Int, majorTotal: Int, cultureCurrent: Int,
         cultureTotal: Int, etcCurrent: Int, etcTotal: Int
     ) {
-        editGradeUsecase(majorCurrent, majorTotal, cultureCurrent, cultureTotal, etcCurrent, etcTotal)
+        updateGradeUsecase(majorCurrent, majorTotal, cultureCurrent, cultureTotal, etcCurrent, etcTotal)
     }
 }

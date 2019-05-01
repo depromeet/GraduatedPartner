@@ -21,8 +21,7 @@ class GraduateListDataSource {
     fun get(key: String): Single<List<Graduate>> =
         Single.create<List<Graduate>> { emitter ->
             emitter.onSuccess(sharedPreference?.getString(key, null)?.let {
-                gson.fromJson<List<Graduate>>(it, (object : TypeToken<List<Graduate>>() {}).type
-                )
+                gson.fromJson<List<Graduate>>(it, (object : TypeToken<List<Graduate>>() {}).type)
             } ?: listOf())
         }
 

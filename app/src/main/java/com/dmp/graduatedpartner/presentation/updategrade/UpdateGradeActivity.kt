@@ -1,18 +1,18 @@
-package com.dmp.graduatedpartner.presentation.editgrade
+package com.dmp.graduatedpartner.presentation.updategrade
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.dmp.graduatedpartner.R
-import com.dmp.graduatedpartner.databinding.ActivityEditGradeBinding
+import com.dmp.graduatedpartner.databinding.ActivityUpdateGradeBinding
 import com.dmp.graduatedpartner.presentation.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_edit_grade.*
+import kotlinx.android.synthetic.main.activity_update_grade.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class EditGradeActivity : BaseActivity() {
-    private val viewModel: EditGradeViewModel by viewModel()
+class UpdateGradeActivity : BaseActivity() {
+    private val viewModel: UpdateGradeViewModel by viewModel()
 
     private val binding by lazy {
-        DataBindingUtil.setContentView<ActivityEditGradeBinding>(this, R.layout.activity_edit_grade)
+        DataBindingUtil.setContentView<ActivityUpdateGradeBinding>(this, R.layout.activity_update_grade)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {

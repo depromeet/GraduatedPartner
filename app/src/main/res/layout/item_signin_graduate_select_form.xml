@@ -7,13 +7,17 @@
 
     <CheckBox
         android:id="@+id/radio_signin3_select"
-        android:layout_width="0dp"
-        android:layout_height="wrap_content"
-        android:layout_weight="1" />
+        android:layout_width="wrap_content"
+        android:layout_marginStart="12dp"
+        style="@android:style/Widget.CompoundButton.RadioButton"
+        android:gravity="center"
+        android:buttonTint="#f8dd58"
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:id="@+id/edittext_signin3_type"
         android:layout_width="0dp"
+        android:layout_marginStart="11dp"
         android:layout_weight="3"
         android:layout_height="wrap_content" />
 
@@ -21,6 +25,6 @@
         android:id="@+id/edittext_signin3_content"
         android:layout_width="0dp"
         android:layout_weight="4"
+        android:layout_marginStart="46dp"
         android:layout_height="wrap_content" />
-
 </LinearLayout>
