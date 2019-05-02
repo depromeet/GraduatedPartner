@@ -20,7 +20,7 @@ class GradeDataSource {
     fun get(key: String): Single<Grade> =
         Single.create<Grade> { emitter ->
             emitter.onSuccess(sharedPreference?.getString(key, null)?.let { gson.fromJson(it, Grade::class.java) }
-                ?: Grade(null, null))
+                ?: Grade())
         }
 
     companion object {

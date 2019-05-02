@@ -40,22 +40,32 @@ class ScoreActivity : BaseActivity() {
         }
         viewModel.getUserInfoTwice()
 
-        val guideDialog = Dialog(this)
-        guideDialog.setContentView(R.layout.dialog_score_guide)
-        guideDialog.findViewById<TextView>(R.id.tv_score_guide_btn).setOnClickListener {
-            guideDialog.dismiss()
+        Dialog(this).apply{
+            setContentView(R.layout.dialog_score_guide)
+            findViewById<TextView>(R.id.tv_score_guide_btn).setOnClickListener {
+                dismiss()
+            }
+            create()
+            window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+            window?.attributes?.width = WindowManager.LayoutParams.MATCH_PARENT
+            show()
         }
-        guideDialog.create()
-        guideDialog.window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
-        guideDialog.window?.attributes?.width = WindowManager.LayoutParams.MATCH_PARENT
-        guideDialog.window?.attributes?.height = WindowManager.LayoutParams.MATCH_PARENT
-        guideDialog.show()
 
         viewModel.getSingleGraduateList().subscribeIgnoreError { graduateList ->
             for(graduate in graduateList){
 
             }
         }.bind()
+
+        btn_score_new_semester.setOnClickListener {
+            Dialog(this).apply {
+                setContentView(R.layout.dialog_new_semester)
+                create()
+                window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
+                window?.attributes?.width = WindowManager.LayoutParams.MATCH_PARENT
+                show()
+            }
+        }
     }
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
