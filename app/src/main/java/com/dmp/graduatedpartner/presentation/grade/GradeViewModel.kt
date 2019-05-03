@@ -1,4 +1,4 @@
-package com.dmp.graduatedpartner.presentation.updategrade
+package com.dmp.graduatedpartner.presentation.grade
 
 import androidx.lifecycle.MutableLiveData
 import com.dmp.graduatedpartner.const.CULTURE_GRADE_KEY
@@ -9,7 +9,7 @@ import com.dmp.graduatedpartner.presentation.base.BaseViewModel
 import com.dmp.graduatedpartner.usecase.GetGrade
 import com.dmp.graduatedpartner.usecase.UpdateGrade
 
-class UpdateGradeViewModel(
+class GradeViewModel(
     private val getGradeusecase: GetGrade, private val updateGradeUsecase: UpdateGrade
 ) : BaseViewModel() {
 

@@ -19,7 +19,7 @@
             </intent-filter>
         </activity>
         <activity android:name=".presentation.score.ScoreActivity"/>
-        <activity android:name=".presentation.updategrade.UpdateGradeActivity"/>
+        <activity android:name=".presentation.grade.GradeActivity"/>
         <activity
             android:name=".presentation.signin.SignInActivity"
             android:windowSoftInputMode="adjustResize"/>

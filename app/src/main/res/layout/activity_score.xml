@@ -154,6 +154,26 @@
                     android:background="@drawable/rect_edge_round_white_trans10"
                     app:layout_constraintTop_toBottomOf="@id/linear_score_graduate_1"
                     app:layout_constraintEnd_toEndOf="parent"/>
+
+                <ImageView
+                    android:id="@+id/btn_score_edit_graduate"
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/oval_white"
+                    android:layout_marginEnd="20dp"
+                    android:layout_marginBottom="16dp"
+                    app:layout_constraintBottom_toBottomOf="@id/view_score_complete"
+                    app:layout_constraintRight_toRightOf="@id/view_score_complete"/>
+
+                <ImageView
+                    android:id="@+id/btn_score_pencil"
+                    android:src="@drawable/ic_pencil"
+                    android:layout_width="32dp"
+                    android:layout_height="32dp"
+                    app:layout_constraintTop_toTopOf="@id/btn_score_edit_graduate"
+                    app:layout_constraintBottom_toBottomOf="@id/btn_score_edit_graduate"
+                    app:layout_constraintLeft_toLeftOf="@id/btn_score_edit_graduate"
+                    app:layout_constraintRight_toRightOf="@id/btn_score_edit_graduate"/>
             </androidx.constraintlayout.widget.ConstraintLayout>
 
             <TextView

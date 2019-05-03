@@ -1,6 +1,6 @@
 package com.dmp.graduatedpartner.presentation
 
-import com.dmp.graduatedpartner.presentation.updategrade.UpdateGradeViewModel
+import com.dmp.graduatedpartner.presentation.grade.GradeViewModel
 import com.dmp.graduatedpartner.presentation.score.ScoreViewModel
 import com.dmp.graduatedpartner.presentation.signin.SignInViewModel
 import com.dmp.graduatedpartner.presentation.start.StartViewModel
@@ -11,5 +11,5 @@ val viewModelModule = module {
     viewModel { StartViewModel(get()) }
     viewModel { SignInViewModel(get()) }
     viewModel { ScoreViewModel(get(), get(), get()) }
-    viewModel { UpdateGradeViewModel(get(), get()) }
+    viewModel { GradeViewModel(get(), get()) }
 }

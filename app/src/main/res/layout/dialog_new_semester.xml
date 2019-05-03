@@ -86,10 +86,10 @@
         <DatePicker
             android:id="@+id/datepicker_new_semester_open"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:layout_marginTop="10dp"
-            style="@style/MyDatePickerStyle"
-            android:theme="@style/MyDatePickerSpinnerStyle"
+            android:datePickerMode="spinner"
+            android:calendarViewShown="false"
             app:layout_constraintTop_toBottomOf="@id/view_new_semester_mark2"/>
 
         <View
@@ -117,7 +117,7 @@
         <DatePicker
             android:id="@+id/datepicker_new_semester_close"
             android:layout_width="match_parent"
-            android:layout_height="60dp"
+            android:layout_height="80dp"
             android:layout_marginTop="10dp"
             style="@style/MyDatePickerStyle"
             android:theme="@style/MyDatePickerSpinnerStyle"

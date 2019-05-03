@@ -1,18 +1,18 @@
-package com.dmp.graduatedpartner.presentation.updategrade
+package com.dmp.graduatedpartner.presentation.grade
 
 import android.os.Bundle
 import androidx.databinding.DataBindingUtil
 import com.dmp.graduatedpartner.R
 import com.dmp.graduatedpartner.databinding.ActivityUpdateGradeBinding
 import com.dmp.graduatedpartner.presentation.base.BaseActivity
-import kotlinx.android.synthetic.main.activity_update_grade.*
+import kotlinx.android.synthetic.main.activity_grade.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
-class UpdateGradeActivity : BaseActivity() {
-    private val viewModel: UpdateGradeViewModel by viewModel()
+class GradeActivity : BaseActivity() {
+    private val viewModel: GradeViewModel by viewModel()
 
     private val binding by lazy {
-        DataBindingUtil.setContentView<ActivityUpdateGradeBinding>(this, R.layout.activity_update_grade)
+        DataBindingUtil.setContentView<ActivityUpdateGradeBinding>(this, R.layout.activity_grade)
     }
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -32,7 +32,7 @@ class UpdateGradeActivity : BaseActivity() {
             finish()
         }
 
-        text_editgrade_back.setOnClickListener {
+        toolbar_update_grade.setNavigationOnClickListener {
             finish()
         }
     }

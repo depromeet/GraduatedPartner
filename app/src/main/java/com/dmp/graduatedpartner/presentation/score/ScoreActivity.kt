@@ -11,7 +11,7 @@ import androidx.databinding.DataBindingUtil
 import com.dmp.graduatedpartner.R
 import com.dmp.graduatedpartner.databinding.ActivityScoreBinding
 import com.dmp.graduatedpartner.presentation.base.BaseActivity
-import com.dmp.graduatedpartner.presentation.updategrade.UpdateGradeActivity
+import com.dmp.graduatedpartner.presentation.grade.GradeActivity
 import kotlinx.android.synthetic.main.activity_score.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -34,7 +34,7 @@ class ScoreActivity : BaseActivity() {
             startActivityForResult(
                 Intent(
                     this@ScoreActivity,
-                    UpdateGradeActivity::class.java
+                    GradeActivity::class.java
                 ), EDIT_GRADE_INTENT
             )
         }
