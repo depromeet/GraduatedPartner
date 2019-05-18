@@ -13,6 +13,7 @@
     <string formatted="false" name="score_subtitle">%s님! %d학점 남으셨어요.</string>
     <string formatted="false" name="score_success_percent">%d%% 달성</string>
     <string formatted="false" name="score_slash_grade">%d/%d학점</string>
+    <string name="str_incomplete_graduated">미완료한 졸업요건</string>
 
     <string-array name="subject_type">
         <item>전공필수</item>
