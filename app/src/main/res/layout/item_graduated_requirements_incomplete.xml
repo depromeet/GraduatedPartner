@@ -10,7 +10,7 @@
             android:id="@+id/item_gr_left_bg"
             android:layout_width="9.1dp"
             android:layout_height="match_parent"
-            android:background="#fcde30"
+            android:background="@color/color_fcde30"
             app:layout_constraintLeft_toLeftOf="parent" />
 
         <androidx.appcompat.widget.AppCompatTextView

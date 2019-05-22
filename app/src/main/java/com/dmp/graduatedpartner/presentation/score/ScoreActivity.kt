@@ -12,7 +12,7 @@ import com.dmp.graduatedpartner.R
 import com.dmp.graduatedpartner.databinding.ActivityScoreBinding
 import com.dmp.graduatedpartner.presentation.base.BaseActivity
 import com.dmp.graduatedpartner.presentation.editgrade.EditGradeActivity
-import com.dmp.graduatedpartner.presentation.start.StartActivity
+import com.dmp.graduatedpartner.presentation.graduatedrequirements.GraduatedRequirementsActivity
 import kotlinx.android.synthetic.main.activity_score.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -30,12 +30,20 @@ class ScoreActivity : BaseActivity() {
 
         btn_score_edit1.setOnClickListener {
             startActivityForResult(
-                Intent(
-                    this@ScoreActivity,
-                    EditGradeActivity::class.java
-                ), EDIT_GRADE_INTENT
+                    Intent(
+                            this@ScoreActivity,
+                            EditGradeActivity::class.java
+                    ), EDIT_GRADE_INTENT
             )
         }
+
+        tv_score_graduate_detail_title.setOnClickListener {
+            startActivity(Intent(
+                    this@ScoreActivity,
+                    GraduatedRequirementsActivity::class.java
+            ))
+        }
+
         viewModel.getUserInfoTwice()
 
         val guideDialog = Dialog(this)

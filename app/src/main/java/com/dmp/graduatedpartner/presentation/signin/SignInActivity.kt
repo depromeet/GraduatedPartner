@@ -2,7 +2,6 @@ package com.dmp.graduatedpartner.presentation.signin
 
 import android.content.Intent
 import android.os.Bundle
-import android.os.Handler
 import android.view.LayoutInflater
 import android.view.View
 import android.widget.EditText
@@ -13,6 +12,7 @@ import androidx.databinding.DataBindingUtil
 import androidx.viewpager.widget.ViewPager
 import com.dmp.graduatedpartner.R
 import com.dmp.graduatedpartner.databinding.ActivitySigninBinding
+import com.dmp.graduatedpartner.model.GraduateList
 import com.dmp.graduatedpartner.presentation.base.BaseActivity
 import com.dmp.graduatedpartner.presentation.score.ScoreActivity
 import com.dmp.graduatedpartner.presentation.signin.adapter.SignInViewPagerAdapter
@@ -42,14 +42,14 @@ class SignInActivity : BaseActivity() {
         val indicator = ArrayList<View>()
         for (i in 0..2) {
             indicator.add(
-                LayoutInflater.from(this).inflate(
-                    R.layout.item_score_indicator,
-                    linear_signin_indicators,
-                    false
-                )
+                    LayoutInflater.from(this).inflate(
+                            R.layout.item_score_indicator,
+                            linear_signin_indicators,
+                            false
+                    )
             )
             linear_signin_indicators.addView(indicator[i])
-            if(i == 0){
+            if (i == 0) {
                 indicator[i].findViewById<ImageView>(R.id.indicator).setImageResource(R.drawable.yellowcircle)
             }
         }
@@ -89,29 +89,32 @@ class SignInActivity : BaseActivity() {
 
         btn_signin_confirm.setOnClickListener {
             val userName =
-                viewPagerAdapter.getView(0)?.findViewById<EditText>(R.id.edit_sigin1_name)?.text.emptyToNull()
+                    viewPagerAdapter.getView(0)?.findViewById<EditText>(R.id.edit_sigin1_name)?.text.emptyToNull()
             val totalSemester =
-                (viewPagerAdapter.getView(0)?.findViewById<Spinner>(R.id.spinner_sigin1_school)?.selectedItem as Int?)
+                    (viewPagerAdapter.getView(0)?.findViewById<Spinner>(R.id.spinner_sigin1_school)?.selectedItem as Int?)
             val currentSemester =
-                (viewPagerAdapter.getView(0)?.findViewById<Spinner>(R.id.spinner_sigin1_current_grade)?.selectedItem as Int?)
+                    (viewPagerAdapter.getView(0)?.findViewById<Spinner>(R.id.spinner_sigin1_current_grade)?.selectedItem as Int?)
             val totalGrade =
-                viewPagerAdapter.getView(1)?.findViewById<EditText>(R.id.edit_sigin2_total_grade)?.text.emptyToNull()
+                    viewPagerAdapter.getView(1)?.findViewById<EditText>(R.id.edit_sigin2_total_grade)?.text.emptyToNull()
             val currentGrade =
-                viewPagerAdapter.getView(2)?.findViewById<EditText>(R.id.edit_sigin3_my_grade)?.text.emptyToNull()
+                    viewPagerAdapter.getView(2)?.findViewById<EditText>(R.id.edit_sigin3_my_grade)?.text.emptyToNull()
+
+            val graduateList = GraduateList(viewPagerAdapter.getGraduateData())
 
             if (userName != null && totalSemester != null && currentSemester != null && totalGrade != null && currentGrade != null) {
                 viewModel.setData(
-                    userName.toString(),
-                    totalSemester,
-                    currentSemester,
-                    totalGrade.toString().toInt(),
-                    currentGrade.toString().toInt()
+                        userName.toString(),
+                        totalSemester,
+                        currentSemester,
+                        totalGrade.toString().toInt(),
+                        currentGrade.toString().toInt(),
+                        graduateList
                 )
                 startActivity(
-                    Intent(
-                        this@SignInActivity,
-                        ScoreActivity::class.java
-                    ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
+                        Intent(
+                                this@SignInActivity,
+                                ScoreActivity::class.java
+                        ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
                 )
             } else {
                 Toast.makeText(this@SignInActivity, "기본 폼을 모두 입력해주세요", Toast.LENGTH_LONG).show()
@@ -121,8 +124,8 @@ class SignInActivity : BaseActivity() {
 
     fun onPressBackButton(view: View) {
         val nextIntent = Intent(
-            this@SignInActivity,
-            StartActivity::class.java
+                this@SignInActivity,
+                StartActivity::class.java
         ).addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK or Intent.FLAG_ACTIVITY_NEW_TASK)
         startActivity(nextIntent)
     }

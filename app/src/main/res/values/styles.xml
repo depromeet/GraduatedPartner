@@ -9,4 +9,10 @@
         <item name="android:colorControlNormal">#fcde30</item>
         <item name="android:colorControlActivated">#fcde30</item>
     </style>
+
+    <style name="EditTextStyle_Signin1" parent="Widget.AppCompat.EditText">
+        <item name="android:colorControlNormal">#c3c3c3</item>
+        <item name="android:colorControlActivated">#c3c3c3</item>
+    </style>
+
 </resources>

@@ -4,6 +4,8 @@
     <color name="colorPrimaryDark">#00574B</color>
     <color name="colorAccent">#D81B60</color>
 
-    <drawable name="color_5f5f5f">#5f5f5f</drawable>
-    <drawable name="color_cecece">#cecece</drawable>
+    <color name="color_5f5f5f">#5f5f5f</color>
+    <color name="color_cecece">#cecece</color>
+    <color name="color_14b7ff">#14b7ff</color>
+    <color name="color_fcde30">#fcde30</color>
 </resources>

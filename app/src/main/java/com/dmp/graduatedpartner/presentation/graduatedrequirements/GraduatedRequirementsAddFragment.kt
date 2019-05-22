@@ -1,0 +1,2 @@
+package com.dmp.graduatedpartner.presentation.graduatedrequirements
+

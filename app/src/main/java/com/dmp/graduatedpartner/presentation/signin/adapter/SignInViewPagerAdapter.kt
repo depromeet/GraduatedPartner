@@ -13,6 +13,7 @@ import android.widget.AdapterView.OnItemSelectedListener
 import androidx.appcompat.widget.ThemedSpinnerAdapter
 import androidx.viewpager.widget.PagerAdapter
 import com.dmp.graduatedpartner.R
+import com.dmp.graduatedpartner.model.GradRequ
 import kotlinx.android.synthetic.main.item_signin1.view.*
 import kotlinx.android.synthetic.main.item_signin2.view.*
 
@@ -122,6 +123,17 @@ class SignInViewPagerAdapter(private val context: Context) : PagerAdapter() {
             }
         )
         return graduateRadioViews.last()
+    }
+
+    fun getGraduateData(): List<GradRequ>{
+        val dataList = arrayListOf<GradRequ>()
+        for(graduateRadioView in graduateRadioViews){
+            val isComplet = graduateRadioView.findViewById<RadioButton>(R.id.radio_signin3_select).isChecked
+            val graduateType = graduateRadioView.findViewById<TextView>(R.id.edittext_signin3_type).text.toString()
+            val graduateTitle = graduateRadioView.findViewById<TextView>(R.id.edittext_signin3_content).text.toString()
+            dataList.add(GradRequ(graduateType,graduateTitle,isComplet))
+        }
+        return dataList
     }
 
     override fun destroyItem(container: ViewGroup, position: Int, viewItem: Any) {
