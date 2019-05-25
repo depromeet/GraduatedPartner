@@ -44,5 +44,6 @@
         <item>자격증</item>
         <item>어학점수</item>
         <item>기타</item>
+        <item> </item>
     </string-array>
 </resources>

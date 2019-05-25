@@ -8,4 +8,6 @@
     <color name="color_cecece">#cecece</color>
     <color name="color_14b7ff">#14b7ff</color>
     <color name="color_fcde30">#fcde30</color>
+
+    <color name="transparent">#00000000</color>
 </resources>

@@ -2,11 +2,10 @@ package com.dmp.graduatedpartner.presentation.graduatedrequirements
 
 import android.os.Bundle
 import androidx.core.view.isVisible
-import androidx.databinding.DataBindingUtil
 import com.dmp.graduatedpartner.R
 import com.dmp.graduatedpartner.const.GRADUATE_LIST_KEY
-import com.dmp.graduatedpartner.databinding.ActivityGraduatedRequirementsBinding
 import com.dmp.graduatedpartner.datasource.local.GraduateListDataSource
+import com.dmp.graduatedpartner.model.GradRequ
 import com.dmp.graduatedpartner.model.GraduateList
 import com.dmp.graduatedpartner.presentation.base.BaseActivity
 import com.dmp.graduatedpartner.presentation.graduatedrequirements.adapter.GraduatedAddAdapter
@@ -14,7 +13,6 @@ import com.dmp.graduatedpartner.presentation.graduatedrequirements.adapter.Gradu
 import com.dmp.graduatedpartner.repository.GraduateListRepository
 import io.reactivex.disposables.Disposable
 import kotlinx.android.synthetic.main.activity_graduated_requirements.*
-import org.koin.android.viewmodel.ext.android.viewModel
 
 class GraduatedRequirementsActivity : BaseActivity() {
 
@@ -30,7 +28,7 @@ class GraduatedRequirementsActivity : BaseActivity() {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView( R.layout.activity_graduated_requirements)
+        setContentView(R.layout.activity_graduated_requirements)
         initView()
     }
 
@@ -40,6 +38,15 @@ class GraduatedRequirementsActivity : BaseActivity() {
             if (!it.isSelected) {
                 changeMode(MODE_ADD)
             }
+            GraduatedRequirementsAddDialog().apply {
+                callback = object : GraduatedRequirementsAddDialog.Callback {
+                    override fun returnGraduated(data: GradRequ) {
+                        addGraduate(data)
+                        getGraduateList(MODE_ADD)
+                    }
+                }
+                show(supportFragmentManager, "addDialog")
+            }
         }
         graduated_delete_btn.setOnClickListener {
             if (!it.isSelected) {
@@ -47,11 +54,7 @@ class GraduatedRequirementsActivity : BaseActivity() {
             }
         }
         graduated_item_delete_btn.setOnClickListener {
-            val deleteList = graduateList.list.toMutableList()
-            delAdapter.getDeleteContents().forEach {
-                deleteList.removeAt(it)
-            }
-            GraduateListRepository(GraduateListDataSource()).put(GRADUATE_LIST_KEY, GraduateList(deleteList.toList()))
+            deleteGraduate(delAdapter.getDeleteContents())
             getGraduateList(MODE_DEL)
         }
         graduated_back_space.setOnClickListener {
@@ -72,6 +75,20 @@ class GraduatedRequirementsActivity : BaseActivity() {
             graduated_item_delete_btn.isVisible = true
         }
         getGraduateList(mode)
+    }
+
+    private fun deleteGraduate(deleteContents: List<Int>) {
+        val deleteList = graduateList.list.toMutableList()
+        deleteContents.forEach {
+            deleteList.removeAt(it)
+        }
+        GraduateListRepository(GraduateListDataSource()).put(GRADUATE_LIST_KEY, GraduateList(deleteList.toList()))
+    }
+
+    private fun addGraduate(data: GradRequ) {
+        val deleteList = graduateList.list.toMutableList()
+        deleteList.add(data)
+        GraduateListRepository(GraduateListDataSource()).put(GRADUATE_LIST_KEY, GraduateList(deleteList.toList()))
     }
 
     private fun getGraduateList(mode: Int) {

@@ -52,6 +52,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:minHeight="50dp"
+            android:theme="@style/EditTextStyle_Signin1"
             android:layout_marginStart="20dp"
             android:layout_marginEnd="20dp"
             android:layout_marginTop="20dp"

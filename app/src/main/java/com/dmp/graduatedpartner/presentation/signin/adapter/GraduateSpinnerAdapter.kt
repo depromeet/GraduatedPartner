@@ -13,7 +13,7 @@ import com.dmp.graduatedpartner.R
 class GraduateSpinnerAdapter(private val context: Context) : BaseAdapter(), ThemedSpinnerAdapter {
     private val helper = ThemedSpinnerAdapter.Helper(context)
     private val itemList = context.resources.getStringArray(R.array.graduated_subject_type)
-    var previousSelectedItem = 4
+    var previousSelectedItem = itemList.size
 
     fun getAndSetPreviousSelectedItem(nowItem: Int): Int {
         val result = previousSelectedItem
@@ -21,7 +21,7 @@ class GraduateSpinnerAdapter(private val context: Context) : BaseAdapter(), Them
         return result
     }
 
-    override fun getCount() = 4
+    override fun getCount() = itemList.size
 
     override fun getItem(position: Int) = itemList[position]
 
