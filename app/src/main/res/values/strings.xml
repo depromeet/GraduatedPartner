@@ -15,6 +15,7 @@
     <string formatted="false" name="score_slash_grade">%d/%d학점</string>
     <string name="str_incomplete_graduated">미완료한 졸업요건</string>
     <string name="str_complate_graduated">완료한 졸업요건</string>
+    <string name="str_delete">삭제</string>
 
     <string-array name="subject_type">
         <item>전공필수</item>
@@ -38,4 +39,10 @@
         <item>N</item>
     </string-array>
 
+    <string-array name="graduated_subject_type">
+        <item>교양필수</item>
+        <item>자격증</item>
+        <item>어학점수</item>
+        <item>기타</item>
+    </string-array>
 </resources>

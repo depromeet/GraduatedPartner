@@ -1,4 +1,4 @@
-package com.dmp.graduatedpartner.presentation.graduatedrequirements
+package com.dmp.graduatedpartner.presentation.graduatedrequirements.adapter
 
 import android.view.View
 import android.view.ViewGroup

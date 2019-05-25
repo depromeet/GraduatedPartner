@@ -12,10 +12,10 @@
             android:layout_width="26dp"
             android:layout_height="match_parent"
             android:background="#fcde30"
-            app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintLeft_toLeftOf="parent"/>
+            app:layout_constraintLeft_toLeftOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
 
-        <RadioButton
+        <CheckBox
             android:id="@+id/item_gr_choice"
             android:layout_width="16dp"
             android:layout_height="16dp"
@@ -49,6 +49,7 @@
             android:fontFamily="@font/nanumsquareround"
             android:textColor="#171717"
             android:textSize="16sp"
+            android:textStyle="bold"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintHorizontal_bias="0"
             app:layout_constraintLeft_toLeftOf="@id/item_gr_sub_txt"
