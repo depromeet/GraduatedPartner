@@ -126,7 +126,7 @@
                     app:layout_constraintTop_toTopOf="@id/tv_score_graduate_progress_title"
                     app:layout_constraintLeft_toRightOf="@id/pg_score_total_title"/>
 
-                <LinearLayout
+                <View
                     android:id="@+id/linear_score_graduate_1"
                     android:layout_width="95dp"
                     android:layout_height="70dp"
@@ -135,7 +135,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_score_graduate_detail_title"
                     app:layout_constraintStart_toStartOf="@id/tv_score_graduate_detail_title"/>
 
-                <LinearLayout
+                <View
                     android:id="@+id/linear_score_graduate_2"
                     android:layout_width="95dp"
                     android:layout_height="70dp"
@@ -145,7 +145,7 @@
                     app:layout_constraintTop_toBottomOf="@id/tv_score_graduate_detail_title"
                     app:layout_constraintEnd_toEndOf="parent"/>
 
-                <LinearLayout
+                <View
                     android:id="@+id/linear_score_graduate_3"
                     android:layout_width="200dp"
                     android:layout_height="70dp"

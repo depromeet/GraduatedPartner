@@ -1,4 +1,6 @@
-package com.dmp.graduatedpartner.presentation.course
+package com.dmp.graduatedpartner.presentation.graduate
 
-class GraduateViewModel {
+import com.dmp.graduatedpartner.presentation.base.BaseViewModel
+
+class GraduateViewModel : BaseViewModel() {
 }

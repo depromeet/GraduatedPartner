@@ -11,7 +11,9 @@ import androidx.databinding.DataBindingUtil
 import com.dmp.graduatedpartner.R
 import com.dmp.graduatedpartner.databinding.ActivityScoreBinding
 import com.dmp.graduatedpartner.presentation.base.BaseActivity
+import com.dmp.graduatedpartner.presentation.course.CourseActivity
 import com.dmp.graduatedpartner.presentation.grade.GradeActivity
+import com.dmp.graduatedpartner.presentation.graduate.GraduateActivity
 import kotlinx.android.synthetic.main.activity_score.*
 import org.koin.android.viewmodel.ext.android.viewModel
 
@@ -40,7 +42,7 @@ class ScoreActivity : BaseActivity() {
         }
         viewModel.getUserInfoTwice()
 
-        Dialog(this).apply{
+        Dialog(this).apply {
             setContentView(R.layout.dialog_score_guide)
             findViewById<TextView>(R.id.tv_score_guide_btn).setOnClickListener {
                 dismiss()
@@ -48,11 +50,12 @@ class ScoreActivity : BaseActivity() {
             create()
             window?.setBackgroundDrawable(ColorDrawable(Color.TRANSPARENT))
             window?.attributes?.width = WindowManager.LayoutParams.MATCH_PARENT
+            window?.attributes?.height = WindowManager.LayoutParams.MATCH_PARENT
             show()
         }
 
         viewModel.getSingleGraduateList().subscribeIgnoreError { graduateList ->
-            for(graduate in graduateList){
+            for (graduate in graduateList) {
 
             }
         }.bind()
@@ -65,6 +68,22 @@ class ScoreActivity : BaseActivity() {
                 window?.attributes?.width = WindowManager.LayoutParams.MATCH_PARENT
                 show()
             }
+        }
+
+        btn_score_input_grade.setOnClickListener {
+            startActivity(CourseActivity.newIntent(this@ScoreActivity))
+        }
+
+        btn_score_edit1.setOnClickListener {
+            startActivity(GradeActivity.newIntent(this@ScoreActivity))
+        }
+
+        btn_score_edit2.setOnClickListener {
+            startActivity(CourseActivity.newIntent(this@ScoreActivity))
+        }
+
+        btn_score_edit_graduate.setOnClickListener {
+            startActivity(GraduateActivity.newIntent(this@ScoreActivity))
         }
     }
 
