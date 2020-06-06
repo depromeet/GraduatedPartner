@@ -32,7 +32,7 @@ class EditGradeActivity : BaseActivity() {
             finish()
         }
 
-        text_editgrade_back.setOnClickListener {
+        btn_back.setOnClickListener {
             finish()
         }
     }

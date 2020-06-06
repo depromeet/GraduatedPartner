@@ -4,7 +4,8 @@
         xmlns:app="http://schemas.android.com/apk/res-auto"
         xmlns:tools="http://schemas.android.com/tools"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:background="#BF000000">
 
     <androidx.appcompat.widget.AppCompatTextView
             android:id="@+id/graduated_add_title"
@@ -39,6 +40,7 @@
             android:layout_height="40dp"
             android:layout_marginStart="21dp"
             android:layout_marginTop="31dp"
+            android:background="@drawable/spinner_bg_type"
             app:layout_constraintLeft_toLeftOf="@id/graduated_add_container"
             app:layout_constraintTop_toTopOf="@id/graduated_add_container"
             tools:layout_editor_absoluteY="330dp"/>
